@@ -65,7 +65,7 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font-family:in
 .btn.ghost:hover{background:var(--surface-2);border-color:#cbd5e1}
 .btn.small{padding:6px 11px;font-size:12px;border-radius:8px}
 .btn.danger{background:var(--danger)}.btn.danger:hover{background:#b91c1c}
-.btn.warn{background:var(--warn)}.btn.ok{background:var(--ok)}
+.btn.warn{background:var(--warn)}.btn.ok{background:var(--ok)}.btn.ok:hover{background:#047857}
 .btn:disabled{opacity:.5;cursor:not-allowed}
 .results-top{padding:20px 0 6px}
 .results-search{max-width:760px;margin:0 auto 14px}
@@ -86,7 +86,6 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font-family:in
 .analysis-panel .tag{font-size:12px;font-weight:700;padding:4px 11px;border-radius:999px;background:var(--surface-2);color:#334155}
 .analysis-panel .tag b{color:var(--accent-dark)}
 .notice{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;background:var(--warn-soft);border:1px solid #fde68a;color:#92400e;border-radius:var(--radius);padding:11px 14px;font-size:13px;font-weight:600;margin-bottom:12px}
-.info-notice{background:var(--accent-soft);border:1px solid #bfdbfe;color:var(--accent-dark)}
 .empty{text-align:center;padding:56px 20px;background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted)}
 .empty .big{font-size:38px;margin-bottom:10px}
 .empty h3{margin:0 0 6px;color:var(--text);font-size:16px}
@@ -145,6 +144,62 @@ td select{padding:5px 8px;border-radius:8px;border:1px solid var(--line);font-si
 @media (max-width:900px){.results-layout{grid-template-columns:1fr}.sidebar{position:static}.sidebar-toggle{display:inline-flex!important}.sidebar.collapsed .filter-group{display:none}}
 @media (max-width:640px){body{font-size:14.5px}.header-inner{height:58px}.brand-text small{display:none}.site-nav a{padding:7px 9px;font-size:12.5px}.hero{padding:34px 16px 22px}.search-box{border-radius:16px;flex-wrap:wrap;padding:8px}.search-box input{width:100%;flex:1 1 100%;padding:8px 10px;font-size:15px}.btn-search{width:100%;border-radius:12px;padding:12px}.search-box .icon{display:none}.chip{padding:8px 12px;font-size:12.5px}.card{padding:14px}.card-content{font-size:14.5px}.form-inline{grid-template-columns:1fr}.admin-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.bar-row{grid-template-columns:90px 1fr 36px;font-size:12px}}
 .sidebar-toggle{display:none;margin-bottom:10px}
+
+/* ===== نافذة الرابط المباشر ===== */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(15,23,42,.55);
+  backdrop-filter:blur(3px);z-index:300;
+  display:grid;place-items:center;padding:16px;
+  animation:fadeIn .15s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--surface);border-radius:16px;width:min(560px,100%);
+  box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;
+  animation:slideUp .2s ease;
+}
+@keyframes slideUp{from{transform:translateY(14px);opacity:.6}to{transform:translateY(0);opacity:1}}
+.modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border-bottom:1px solid var(--line);
+}
+.modal-header h3{margin:0;font-size:16px;font-weight:800}
+.modal-close{
+  border:0;background:transparent;cursor:pointer;font-size:18px;
+  color:var(--muted);width:32px;height:32px;border-radius:8px;
+}
+.modal-close:hover{background:var(--surface-2);color:var(--text)}
+.modal-body{padding:18px}
+.modal-note{font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.7}
+.modal-post{
+  background:var(--surface-2);border-right:3px solid var(--accent);
+  padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:600;
+  color:#1e293b;margin-bottom:14px;line-height:1.7;max-height:120px;overflow-y:auto;
+}
+.modal-body input[type=url]{
+  width:100%;padding:12px 14px;border-radius:10px;
+  border:1.5px solid var(--line);outline:0;font-size:13.5px;
+  font-family:'Cairo',sans-serif;direction:ltr;text-align:left;
+}
+.modal-body input[type=url]:focus{
+  border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.12);
+}
+.modal-hint{
+  font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.7;
+}
+.modal-hint code{
+  background:var(--surface-2);padding:2px 6px;border-radius:5px;
+  font-size:11px;direction:ltr;display:inline-block;
+}
+.modal-footer{
+  display:flex;gap:8px;flex-wrap:wrap;padding:14px 18px;
+  border-top:1px solid var(--line);background:var(--surface-2);
+  justify-content:flex-start;
+}
+@media (max-width:520px){
+  .modal-footer{flex-direction:column}
+  .modal-footer .btn{width:100%;justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -366,11 +421,40 @@ td select{padding:5px 8px;border-radius:8px;border:1px solid var(--line);font-si
   <div class="container inner">
     <div class="note">
       <strong>محرك بحث صيانة الإسكندرية</strong> — الأزرار «فتح البحث على المنصة» تفتح بحثًا حقيقيًا داخل المنصة.
-      الروابط المباشرة تُضاف من لوحة التحكم. لا يوجد أي scraping تلقائي.
+      الروابط المباشرة تُضاف من لوحة التحكم أو من نافذة الرابط. لا يوجد أي scraping تلقائي.
     </div>
     <div>© <span id="year"></span> — نموذج أولي</div>
   </div>
 </footer>
+
+<!-- نافذة إضافة رابط المنشور المباشر -->
+<div id="link-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>🔗 إضافة رابط المنشور الأصلي</h3>
+      <button class="modal-close" type="button" id="modal-close-x" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-note">
+        هذا الطلب تجريبي وليس له رابط مباشر محفوظ بعد. الصق الرابط الحقيقي للمنشور
+        من فيسبوك / تيليجرام / إنستجرام / المنتدى وسيُحفظ ويفتح فورًا.
+      </p>
+      <div class="modal-post" id="modal-post-preview"></div>
+      <input type="url" id="modal-url-input" placeholder="https://www.facebook.com/groups/.../posts/123456" autocomplete="off" />
+      <div class="modal-hint">
+        أمثلة صحيحة:
+        <code>facebook.com/groups/xxx/posts/123</code>
+        <code>t.me/channel/123</code>
+        <code>instagram.com/p/xxxx</code>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn ok" type="button" id="modal-save-open">💾 حفظ وفتح الرابط</button>
+      <button class="btn ghost" type="button" id="modal-search">🔎 بحث على المنصة</button>
+      <button class="btn ghost" type="button" id="modal-cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
 
 <div id="toast" role="status" aria-live="polite"></div>
 
@@ -383,13 +467,7 @@ const CONFIG = {
   storageKey: 'alex-maint-search-v3',
   adminPin: '1234',
   apiBaseUrl: '',
-  pageSize: 40,
-  /* معرّفات حقيقية لمجموعات/قنوات صيانة في الإسكندرية يمكن فتحها مباشرة.
-     استبدلها بالمعرّفات الحقيقية التي تملك صلاحية الوصول إليها. */
-  realGroups: {
-    'Facebook': 'search/posts',   // بحث بوستات فيسبوك العام
-    'Telegram': 's',              // عرض قناة تيليجرام عامة
-  }
+  pageSize: 40
 };
 
 /* ==========================================================================
@@ -446,7 +524,7 @@ function haversine(a,b){
 }
 
 /* ==========================================================================
-   3) قواميس التصنيف (كما هي)
+   3) قواميس التصنيف
    ========================================================================== */
 const DEVICE_LEXICON={
   'غسالات':{label:'غسالات',icon:'🧺',terms:['غساله','غسالات','غسال','غسالت','اتوماتيك','فوق اتوماتيك','هاف اتوماتيك','فل اتوماتيك','washing machine','washer','نشافه غساله']},
@@ -531,15 +609,8 @@ function classify(text){
 }
 
 /* ==========================================================================
-   4) بناء روابط حقيقية على المنصات
+   4) بناء روابط المنصات الحقيقية
    ========================================================================== */
-/**
- * يبني رابط بحث حقيقي على المنصة. جميع هذه الروابط تعمل فعليًا بدون أي API.
- * - Facebook: صفحة نتائج البحث عن بوستات بالكلمات المفتاحية
- * - Telegram: بحث Google مقيّد داخل t.me (لأن Telegram لا يوفّر بحثًا عامًا على الويب)
- * - Instagram: صفحة هاشتاج حقيقية
- * - TikTok: صفحة بحث حقيقية
- */
 function buildPlatformSearchUrl(source, query){
   const q=String(query||'').trim().slice(0,120);
   if(!q)return '';
@@ -554,7 +625,6 @@ function buildPlatformSearchUrl(source, query){
 function isRealDirectUrl(url){
   if(!url||typeof url!=='string')return false;
   if(!/^https?:\/\//i.test(url))return false;
-  // نعتبر الرابط حقيقيًا إذا احتوى على معرّف بوست/منشور
   return /\/(posts|permalink|status|p|watch|reel|video|threads|t)\//i.test(url)
       || /[?&](story_fbid|fbid|v)=/i.test(url)
       || /t\.me\/[^\/]+\/\d+/i.test(url);
@@ -574,7 +644,7 @@ const DEFAULT_SOURCES=[
 ];
 
 /* ==========================================================================
-   6) البيانات التجريبية (بدون روابط وهمية — كل الروابط حقيقية)
+   6) البيانات التجريبية
    ========================================================================== */
 const RAW_POSTS=[
   {source:'Facebook',minutesAgo:12,content:'محتاج فني غسالات كويس في سيدي بشر، الغسالة مش بتعصر.'},
@@ -598,7 +668,6 @@ const RAW_POSTS=[
   {source:'Facebook',minutesAgo:7500,content:'محتاج فني مجفف ملابس في سموحة، المجفف مش بيسخن.'},
   {source:'Telegram',minutesAgo:8000,content:'مكنسة كهربائية مش شغالة، حد يعرف فني أجهزة منزلية في ميامي؟'},
   {source:'Facebook',minutesAgo:260,content:'سخان كهرباء بيقطع كهرباء، استفسار عن السبب — لوران.'},
-  /* مستبعدة تلقائيًا */
   {source:'Facebook',minutesAgo:80,content:'غسالات للبيع جديدة بالضمان بأسعار ممتازة، عرض خاص وتقسيط.'},
   {source:'Facebook',minutesAgo:200,content:'عروض تكييفات 2025 بأفضل الأسعار وخصومات وتقسيط، اتصل للطلب.'},
   {source:'Instagram',minutesAgo:400,content:'صور غسالات حديثة من معرضنا، خصم 20% لفترة محدودة.'},
@@ -625,8 +694,8 @@ function buildItems(){
       id:'itm-'+String(i+1).padStart(3,'0'),
       source:p.source,
       source_url:p.source_url||'',
-      original_post_url: direct || searchUrl,   // رابط مباشر إن وُجد، وإلا رابط بحث حقيقي
-      direct_post_url: direct,                  // null للعناصر التجريبية
+      original_post_url: direct || searchUrl,
+      direct_post_url: direct,
       search_url: searchUrl,
       content:p.content,
       category:cls.category,
@@ -764,11 +833,12 @@ function cardHtml(item,opts){
   const realBadge=hasDirect?'<span class="badge real">✅ رابط مباشر</span>':'';
   const distTxt=(state.sort==='nearest'&&isFinite(o.distance))?'<span>🧭 '+o.distance.toFixed(1)+' كم</span>':'';
 
-  const directBtn=hasDirect
+  const sourceBtn = hasDirect
     ? `<a class="btn ok" href="${escapeHtml(item.direct_post_url)}" target="_blank" rel="noopener noreferrer">🔗 فتح المنشور الأصلي</a>`
-    : '';
-  const searchBtn=searchUrl
-    ? `<a class="btn" href="${escapeHtml(searchUrl)}" target="_blank" rel="noopener noreferrer">🔎 ابحث عن هذا الطلب على ${escapeHtml(item.source)}</a>`
+    : `<button class="btn" type="button" data-action="open-source" data-id="${escapeHtml(item.id)}">🔗 فتح المصدر</button>`;
+
+  const searchBtn = searchUrl
+    ? `<button class="btn ghost" type="button" data-action="platform-search" data-id="${escapeHtml(item.id)}">🔎 بحث على ${escapeHtml(item.source)}</button>`
     : '';
 
   return `
@@ -789,7 +859,7 @@ function cardHtml(item,opts){
         ${seen}
       </div>
       <div class="card-actions">
-        ${directBtn}${searchBtn}
+        ${sourceBtn}${searchBtn}
         <button class="btn ghost" type="button" data-action="copy" data-id="${escapeHtml(item.id)}">📋 نسخ النص</button>
         <span class="badge" title="درجة ثقة التصنيف">ثقة ${Math.round((item.confidence_score||0)*100)}%</span>
       </div>
@@ -1031,7 +1101,7 @@ const NotificationService={
 };
 
 /* ==========================================================================
-   15) إضافة طلب حقيقي (الوظيفة الجديدة الأساسية)
+   15) إضافة طلب حقيقي
    ========================================================================== */
 function addRealPost({content,url,source,date}){
   if(!content||!content.trim()){toast('اكتب نص الطلب');return false;}
@@ -1063,7 +1133,6 @@ function addRealPost({content,url,source,date}){
     is_real:true
   };
 
-  // منع التكرار مع الروابط المباشرة
   const dup=state.items.find(i=>i.direct_post_url===url
     || fingerprint(i.content)===fingerprint(item.content));
   if(dup){
@@ -1079,7 +1148,7 @@ function addRealPost({content,url,source,date}){
 }
 
 /* ==========================================================================
-   16) استيراد RSS حقيقي
+   16) استيراد RSS
    ========================================================================== */
 async function fetchRss(url){
   const out=document.getElementById('rss-result');
@@ -1162,7 +1231,71 @@ async function syncSource(id){
 }
 
 /* ==========================================================================
-   18) ربط الأحداث
+   18) نافذة إضافة رابط مباشر
+   ========================================================================== */
+let _modalItemId = null;
+
+function openLinkModal(itemId){
+  const item = state.items.find(i => i.id === itemId);
+  if(!item) return;
+
+  if(isRealDirectUrl(item.direct_post_url)){
+    window.open(item.direct_post_url, '_blank', 'noopener');
+    return;
+  }
+
+  _modalItemId = itemId;
+  document.getElementById('modal-post-preview').textContent = '"' + item.content + '"';
+  document.getElementById('modal-url-input').value = '';
+  const modal = document.getElementById('link-modal');
+  modal.classList.remove('hidden');
+  setTimeout(() => document.getElementById('modal-url-input').focus(), 60);
+}
+
+function closeLinkModal(){
+  document.getElementById('link-modal').classList.add('hidden');
+  _modalItemId = null;
+}
+
+function saveAndOpenModalLink(){
+  const item = state.items.find(i => i.id === _modalItemId);
+  if(!item){ closeLinkModal(); return; }
+
+  const url = document.getElementById('modal-url-input').value.trim();
+
+  if(!url){ toast('الصق رابط المنشور أولًا'); return; }
+  if(!isRealDirectUrl(url)){
+    toast('⚠️ الرابط ليس رابط منشور مباشر — تأكد أنه يحتوي على /posts/ أو /status/ أو /t.me/ch/123');
+    return;
+  }
+
+  const dup = state.items.find(i => i.id !== item.id && i.direct_post_url === url);
+  if(dup){ toast('⚠️ هذا الرابط مضاف مسبقًا على طلب آخر'); return; }
+
+  item.direct_post_url = url;
+  item.original_post_url = url;
+  item.is_real = true;
+  save();
+
+  closeLinkModal();
+  renderResults();
+  renderHome();
+  if(state.adminAuthed) renderAdmin();
+
+  window.open(url, '_blank', 'noopener');
+  toast('✅ تم حفظ الرابط المباشر وفتحه');
+}
+
+function openPlatformSearch(itemId){
+  const item = state.items.find(i => i.id === itemId);
+  if(!item) return;
+  const url = item.search_url || buildPlatformSearchUrl(item.source, item.content);
+  if(!url){ toast('لا يمكن بناء رابط البحث'); return; }
+  window.open(url, '_blank', 'noopener');
+}
+
+/* ==========================================================================
+   19) ربط الأحداث
    ========================================================================== */
 function bindEvents(){
   document.getElementById('home-search-form').addEventListener('submit',e=>{
@@ -1210,6 +1343,42 @@ function bindEvents(){
   document.addEventListener('click',e=>{
     if(e.target.id==='btn-clear-all'){state.query='';state.filters={device:'',area:'',postType:''};goSearch('');}
   });
+
+  /* --- زر فتح المصدر + البحث على المنصة --- */
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-action="open-source"], [data-action="platform-search"]');
+    if(!btn) return;
+    const id = btn.dataset.id;
+    if(btn.dataset.action === 'open-source') openLinkModal(id);
+    if(btn.dataset.action === 'platform-search') openPlatformSearch(id);
+  });
+
+  /* --- أحداث المودال --- */
+  document.getElementById('modal-close-x').addEventListener('click', closeLinkModal);
+  document.getElementById('modal-cancel').addEventListener('click', closeLinkModal);
+  document.getElementById('modal-save-open').addEventListener('click', saveAndOpenModalLink);
+
+  document.getElementById('modal-search').addEventListener('click', () => {
+    const item = state.items.find(i => i.id === _modalItemId);
+    if(!item) return;
+    const url = item.search_url || buildPlatformSearchUrl(item.source, item.content);
+    if(url) window.open(url, '_blank', 'noopener');
+  });
+
+  document.getElementById('modal-url-input').addEventListener('keydown', e => {
+    if(e.key === 'Enter'){ e.preventDefault(); saveAndOpenModalLink(); }
+  });
+
+  document.getElementById('link-modal').addEventListener('click', e => {
+    if(e.target.id === 'link-modal') closeLinkModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && !document.getElementById('link-modal').classList.contains('hidden')){
+      closeLinkModal();
+    }
+  });
+
   document.getElementById('sidebar-toggle').addEventListener('click',()=>{
     document.getElementById('sidebar').classList.toggle('collapsed');
   });
@@ -1338,7 +1507,7 @@ function bindEvents(){
 }
 
 /* ==========================================================================
-   19) الإقلاع
+   20) الإقلاع
    ========================================================================== */
 (function init(){
   document.getElementById('year').textContent=new Date().getFullYear();
