@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>محرك بحث صيانة الإسكندرية</title>
-<meta name="description" content="محرك بحث متخصص في طلبات صيانة وإصلاح الأجهزة المنزلية في الإسكندرية." />
+<meta name="description" content="محرك بحث لحظي عن الأشخاص الذين يحتاجون إلى صيانة وإصلاح الأجهزة المنزلية في الإسكندرية — اليوم فقط." />
 <meta name="theme-color" content="#2563eb" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,20 +15,44 @@
 body{font-family:'Cairo',system-ui,'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased;font-size:15px}
 a{color:inherit;text-decoration:none}button,input,select,textarea{font-family:inherit;font-size:inherit}
 .container{width:min(1180px,100%);margin-inline:auto;padding-inline:16px}.hidden{display:none!important}
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
 .brand-mark{width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:linear-gradient(135deg,var(--accent),#0ea5e9);color:#fff;display:grid;place-items:center;font-size:18px;box-shadow:0 4px 12px rgba(37,99,235,.28)}
 .brand-text{display:flex;flex-direction:column;line-height:1.25;min-width:0}
 .brand-text strong{font-size:15px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand-text small{font-size:11px;color:var(--muted)}
-.site-nav{display:flex;align-items:center;gap:4px}
+.site-nav{display:flex;align-items:center;gap:6px}
 .site-nav a{padding:8px 12px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--muted);transition:.15s}
 .site-nav a:hover{background:var(--surface-2);color:var(--text)}
 .site-nav a.active{background:var(--accent-soft);color:var(--accent-dark)}
-.hero{padding:52px 16px 30px;text-align:center}
-.hero h1{font-size:clamp(22px,4.6vw,36px);font-weight:800;margin:0 0 10px;letter-spacing:-.4px}
-.hero .sub{color:var(--muted);font-size:14.5px;margin:0 auto 26px;max-width:640px}
+.backend-status{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--surface-2);color:var(--muted);margin-inline-start:6px}
+.backend-status::before{content:'';width:7px;height:7px;border-radius:50%;background:#cbd5e1}
+.backend-status.ok{background:var(--ok-soft);color:var(--ok)}
+.backend-status.ok::before{background:var(--ok);animation:pulse 1.6s infinite}
+.backend-status.err{background:var(--danger-soft);color:var(--danger)}
+.backend-status.err::before{background:var(--danger)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* Big notice */
+.big-notice{max-width:780px;margin:32px auto;background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid #fcd34d;border-radius:16px;padding:26px 24px;text-align:center;box-shadow:0 4px 20px rgba(217,119,6,.08)}
+.big-notice .icon{font-size:44px;margin-bottom:10px;display:block}
+.big-notice h2{margin:0 0 10px;font-size:20px;color:#78350f;font-weight:800}
+.big-notice p{margin:0 0 12px;color:#92400e;font-size:14.5px;line-height:1.85}
+.big-notice .actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.big-notice code{background:#fff;border:1px solid #fcd34d;padding:3px 8px;border-radius:6px;font-size:12.5px;color:#78350f;direction:ltr;display:inline-block}
+
+/* Demo banner */
+.demo-banner{background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px solid #f59e0b;border-radius:14px;padding:14px 18px;margin:20px auto;max-width:1180px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 4px 16px rgba(245,158,11,.15)}
+.demo-banner .t{font-size:14px;font-weight:800;color:#78350f}
+.demo-banner .d{font-size:12.5px;color:#92400e;margin-top:2px}
+
+/* Hero */
+.hero{padding:36px 16px 20px;text-align:center}
+.hero h1{font-size:clamp(22px,4.6vw,34px);font-weight:800;margin:0 0 10px;letter-spacing:-.4px}
+.hero .sub{color:var(--muted);font-size:14.5px;margin:0 auto 22px;max-width:680px}
 .search-shell{max-width:720px;margin:0 auto}
 .search-box{display:flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:7px 8px 7px 7px;box-shadow:var(--shadow);transition:.18s}
 .search-box:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(37,99,235,.12),var(--shadow)}
@@ -38,13 +62,41 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font-family:in
 .btn-search{border:0;cursor:pointer;background:var(--accent);color:#fff;font-weight:700;padding:12px 26px;border-radius:999px;font-size:15px;transition:.15s;white-space:nowrap}
 .btn-search:hover{background:var(--accent-dark)}
 .search-hint{font-size:12.5px;color:var(--muted);margin-top:12px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
 .chip{border:1px solid var(--line);background:var(--surface);cursor:pointer;padding:9px 15px;border-radius:999px;font-size:13.5px;font-weight:600;color:#334155;transition:.15s;display:inline-flex;align-items:center;gap:6px}
 .chip:hover{border-color:var(--accent);color:var(--accent-dark);background:var(--accent-soft);transform:translateY(-1px)}
-.section{padding:10px 0 46px}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 0 14px}
-.section-head h2{font-size:17px;font-weight:800;margin:0}
-.section-head .count{font-size:12.5px;color:var(--muted);font-weight:600}
+.chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Stats */
+.stats-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;max-width:960px;margin:24px auto 8px;padding-inline:16px}
+.stat-mini{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-align:center;box-shadow:var(--shadow-sm)}
+.stat-mini .k{font-size:11.5px;color:var(--muted);font-weight:700;margin-bottom:3px}
+.stat-mini .v{font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-.5px}
+.stat-mini.g .v{color:#0284c7}
+.stat-mini.r .v{color:#0891b2}
+.stat-mini.a .v{color:#d97706}
+.stat-mini.f .v{color:#dc2626}
+.stat-mini.s .v{color:#7c3aed}
+.stat-mini .u{font-size:10.5px;color:var(--muted);font-weight:600}
+
+/* Filter bar */
+.filter-bar{max-width:1180px;margin:16px auto 0;padding:0 16px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow-sm);align-items:center}
+.filter-row .lbl{font-size:12.5px;font-weight:800;color:var(--muted);padding:0 8px}
+.filter-row select,.filter-row input{flex:1;min-width:120px;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:var(--surface);outline:0;font-size:13px;color:var(--text);cursor:pointer}
+.filter-row select:focus,.filter-row input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.filter-row .time-chip{border:1px solid var(--line);background:var(--surface);cursor:pointer;padding:7px 13px;border-radius:999px;font-size:12.5px;font-weight:700;color:#475569;transition:.15s}
+.filter-row .time-chip:hover{border-color:var(--accent);color:var(--accent-dark)}
+.filter-row .time-chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Results */
+.results-wrap{max-width:1180px;margin:20px auto;padding:0 16px}
+.results-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.results-meta .count{font-size:13.5px;font-weight:700;color:#334155}
+.results-meta .sort{display:flex;gap:4px;background:var(--surface-2);padding:3px;border-radius:10px}
+.results-meta .sort button{border:0;background:transparent;cursor:pointer;padding:7px 14px;border-radius:8px;font-size:12.5px;font-weight:700;color:var(--muted);transition:.15s}
+.results-meta .sort button.active{background:var(--surface);color:var(--accent-dark);box-shadow:var(--shadow-sm)}
+
 .cards{display:grid;gap:12px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-sm);transition:.16s}
 .card:hover{border-color:#cbd5e1;box-shadow:var(--shadow);transform:translateY(-1px)}
@@ -53,115 +105,94 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font-family:in
 .badge.device{background:var(--accent-soft);color:var(--accent-dark)}
 .badge.problem{background:var(--warn-soft);color:var(--warn)}
 .badge.ptype{background:var(--ok-soft);color:var(--ok)}
-.badge.excluded{background:var(--danger-soft);color:var(--danger)}
-.badge.real{background:#dcfce7;color:#166534}
-.badge.fresh{background:#fef3c7;color:#92400e}
+.badge.fresh{background:#dcfce7;color:#166534;font-weight:800}
+.badge.comment{background:#f3e8ff;color:#6b21a8}
+.badge.norelink{background:var(--surface-2);color:#64748b;font-size:11px}
 .card-content{margin:0 0 12px;font-size:15.5px;font-weight:600;color:#1e293b}
 .card-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);margin-bottom:12px}
 .card-meta span{display:inline-flex;align-items:center;gap:5px}
 .card-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1px solid transparent;background:var(--accent);color:#fff;font-weight:700;font-size:13px;padding:9px 16px;border-radius:10px;transition:.15s}
+.btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1px solid transparent;background:var(--accent);color:#fff;font-weight:700;font-size:13px;padding:10px 18px;border-radius:10px;transition:.15s}
 .btn:hover{background:var(--accent-dark)}
 .btn.ghost{background:var(--surface);border-color:var(--line);color:#334155}
 .btn.ghost:hover{background:var(--surface-2);border-color:#cbd5e1}
 .btn.small{padding:6px 11px;font-size:12px;border-radius:8px}
 .btn.danger{background:var(--danger)}.btn.danger:hover{background:#b91c1c}
 .btn.warn{background:var(--warn)}.btn.ok{background:var(--ok)}.btn.ok:hover{background:#047857}
+.btn.disabled{background:var(--surface-2);color:var(--muted);cursor:not-allowed;pointer-events:none}
 .btn:disabled{opacity:.5;cursor:not-allowed}
-.results-top{padding:20px 0 6px}
-.results-search{max-width:760px;margin:0 auto 14px}
-.results-layout{display:grid;grid-template-columns:280px 1fr;gap:22px;align-items:start;padding-bottom:50px}
-.sidebar{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;position:sticky;top:82px}
-.filter-group{margin-bottom:16px}.filter-group:last-child{margin-bottom:0}
-.filter-group label{display:block;font-size:12.5px;font-weight:700;color:#334155;margin-bottom:6px}
-.filter-group select{width:100%;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--surface);outline:0;font-size:13.5px;color:var(--text);cursor:pointer}
-.filter-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-.results-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-bottom:12px}
-.results-count{font-size:13.5px;color:var(--muted);font-weight:600}
-.sort-tabs{display:flex;gap:4px;background:var(--surface-2);padding:3px;border-radius:10px}
-.sort-tabs button{border:0;background:transparent;cursor:pointer;padding:7px 14px;border-radius:8px;font-size:12.5px;font-weight:700;color:var(--muted);transition:.15s}
-.sort-tabs button.active{background:var(--surface);color:var(--accent-dark);box-shadow:var(--shadow-sm)}
-.analysis-panel{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius);padding:12px 14px;margin-bottom:12px}
-.analysis-panel .title{font-size:12px;font-weight:800;color:var(--muted);margin-bottom:8px}
-.analysis-panel .tags{display:flex;flex-wrap:wrap;gap:6px}
-.analysis-panel .tag{font-size:12px;font-weight:700;padding:4px 11px;border-radius:999px;background:var(--surface-2);color:#334155}
-.analysis-panel .tag b{color:var(--accent-dark)}
-.notice{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;background:var(--warn-soft);border:1px solid #fde68a;color:#92400e;border-radius:var(--radius);padding:11px 14px;font-size:13px;font-weight:600;margin-bottom:12px}
-.empty{text-align:center;padding:56px 20px;background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted)}
-.empty .big{font-size:38px;margin-bottom:10px}
-.empty h3{margin:0 0 6px;color:var(--text);font-size:16px}
-.empty p{margin:0 0 16px;font-size:13.5px}
+
+.empty{text-align:center;padding:60px 20px;background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted)}
+.empty .big{font-size:44px;margin-bottom:12px}
+.empty h3{margin:0 0 8px;color:var(--text);font-size:17px;font-weight:800}
+.empty p{margin:0 0 4px;font-size:14px;line-height:1.8}
+.empty .hint{margin-top:14px;font-size:12.5px}
+
+/* Admin */
 .admin-head{padding:24px 0 6px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
 .admin-head h1{font-size:22px;margin:0;font-weight:800}
-.admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:18px 0}
+.admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-sm)}
 .stat .k{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:4px}
 .stat .v{font-size:24px;font-weight:800;letter-spacing:-.5px}
 .stat .v.accent{color:var(--accent)}.stat .v.ok{color:var(--ok)}.stat .v.warn{color:var(--warn)}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
 .panel h3{margin:0 0 12px;font-size:15px;font-weight:800}
-.bar-row{display:grid;grid-template-columns:110px 1fr 42px;align-items:center;gap:10px;font-size:13px;margin-bottom:8px}
-.bar{height:8px;border-radius:999px;background:var(--surface-2);overflow:hidden}
-.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#38bdf8);border-radius:999px}
-.bar-row .n{text-align:left;color:var(--muted);font-weight:700;font-size:12px}
+.panel .note{font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.75}
+.form-block{display:grid;gap:12px}
+.form-block .f label{display:block;font-size:12.5px;font-weight:800;color:#334155;margin-bottom:6px}
+.form-block input,.form-block select,.form-block textarea{width:100%;padding:11px 13px;border-radius:var(--radius-sm);border:1px solid var(--line);outline:0;font-size:13.5px;font-family:inherit;background:var(--surface);color:var(--text)}
+.form-block textarea{min-height:84px;resize:vertical;line-height:1.7}
+.form-block input:focus,.form-block textarea:focus,.form-block select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.form-block .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.form-block .row2{grid-template-columns:1fr}}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .tabs button{border:1px solid var(--line);background:var(--surface);cursor:pointer;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;color:var(--muted);transition:.15s}
 .tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
 table{width:100%;border-collapse:collapse;min-width:900px}
 th,td{padding:10px 12px;text-align:right;font-size:13px;border-bottom:1px solid var(--line);vertical-align:top}
 th{background:var(--surface-2);font-weight:800;font-size:12px;color:#334155;white-space:nowrap;position:sticky;top:0}
 tr:last-child td{border-bottom:0}
 td .txt{max-width:320px;display:block;line-height:1.6}
-td select{padding:5px 8px;border-radius:8px;border:1px solid var(--line);font-size:12px;background:var(--surface);max-width:150px}
 .row-actions{display:flex;gap:6px;flex-wrap:wrap}
-.status-dot{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700}
-.status-dot::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--ok)}
-.status-dot.off::before{background:#cbd5e1}
-.status-dot.hidden-dot::before{background:var(--warn)}
-.form-inline{display:grid;grid-template-columns:1.2fr .8fr 1.6fr auto;gap:8px;align-items:end}
-.form-inline .f label{display:block;font-size:12px;font-weight:700;color:#334155;margin-bottom:5px}
-.form-inline input,.form-inline select,.form-inline textarea{width:100%;padding:9px 11px;border-radius:var(--radius-sm);border:1px solid var(--line);outline:0;font-size:13px;font-family:inherit}
-.form-inline input:focus,.form-inline select:focus,.form-inline textarea:focus{border-color:var(--accent)}
-.form-block{display:grid;gap:10px}
-.form-block .f label{display:block;font-size:12.5px;font-weight:700;color:#334155;margin-bottom:5px}
-.form-block input,.form-block select,.form-block textarea{width:100%;padding:11px 13px;border-radius:var(--radius-sm);border:1px solid var(--line);outline:0;font-size:13.5px;font-family:inherit}
-.form-block textarea{min-height:80px;resize:vertical}
-.form-block input:focus,.form-block textarea:focus,.form-block select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-.admin-search{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.admin-search input{flex:1;min-width:220px;padding:10px 13px;border-radius:var(--radius-sm);border:1px solid var(--line);outline:0;font-size:13.5px}
-.admin-search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+
 .gate{max-width:380px;margin:70px auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);text-align:center}
 .gate h2{margin:0 0 6px;font-size:19px}
 .gate p{color:var(--muted);font-size:13px;margin:0 0 18px}
 .gate input{width:100%;padding:12px 14px;border-radius:var(--radius-sm);border:1px solid var(--line);outline:0;text-align:center;letter-spacing:4px;font-size:18px;margin-bottom:12px}
 .gate input:focus{border-color:var(--accent)}
 .gate .btn{width:100%;justify-content:center;padding:12px}
-#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:11px 22px;border-radius:999px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:200;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+
+/* Toast */
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:12px 22px;border-radius:12px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:400;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:90vw;text-align:center;line-height:1.6}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Footer */
 .site-footer{border-top:1px solid var(--line);background:var(--surface);padding:22px 0;margin-top:20px}
 .site-footer .inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted)}
-.site-footer .note{max-width:640px;line-height:1.7}
-@media (max-width:900px){.results-layout{grid-template-columns:1fr}.sidebar{position:static}.sidebar-toggle{display:inline-flex!important}.sidebar.collapsed .filter-group{display:none}}
-@media (max-width:640px){body{font-size:14.5px}.header-inner{height:58px}.brand-text small{display:none}.site-nav a{padding:7px 9px;font-size:12.5px}.hero{padding:34px 16px 22px}.search-box{border-radius:16px;flex-wrap:wrap;padding:8px}.search-box input{width:100%;flex:1 1 100%;padding:8px 10px;font-size:15px}.btn-search{width:100%;border-radius:12px;padding:12px}.search-box .icon{display:none}.chip{padding:8px 12px;font-size:12.5px}.card{padding:14px}.card-content{font-size:14.5px}.form-inline{grid-template-columns:1fr}.admin-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.bar-row{grid-template-columns:90px 1fr 36px;font-size:12px}}
-.sidebar-toggle{display:none;margin-bottom:10px}
-.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(3px);z-index:300;display:grid;place-items:center;padding:16px;animation:fadeIn .15s ease}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:var(--surface);border-radius:16px;width:min(560px,100%);box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;animation:slideUp .2s ease}
-@keyframes slideUp{from{transform:translateY(14px);opacity:.6}to{transform:translateY(0);opacity:1}}
-.modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
-.modal-header h3{margin:0;font-size:16px;font-weight:800}
-.modal-close{border:0;background:transparent;cursor:pointer;font-size:18px;color:var(--muted);width:32px;height:32px;border-radius:8px}
-.modal-close:hover{background:var(--surface-2);color:var(--text)}
-.modal-body{padding:18px}
-.modal-note{font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.7}
-.modal-post{background:var(--surface-2);border-right:3px solid var(--accent);padding:11px 14px;border-radius:10px;font-size:13.5px;font-weight:600;color:#1e293b;margin-bottom:14px;line-height:1.7;max-height:120px;overflow-y:auto}
-.modal-body input[type=url]{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);outline:0;font-size:13.5px;font-family:'Cairo',sans-serif;direction:ltr;text-align:left}
-.modal-body input[type=url]:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
-.modal-hint{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.7}
-.modal-hint code{background:var(--surface-2);padding:2px 6px;border-radius:5px;font-size:11px;direction:ltr;display:inline-block}
-.modal-footer{display:flex;gap:8px;flex-wrap:wrap;padding:14px 18px;border-top:1px solid var(--line);background:var(--surface-2);justify-content:flex-start}
-@media (max-width:520px){.modal-footer{flex-direction:column}.modal-footer .btn{width:100%;justify-content:center}}
+.site-footer .note{max-width:680px;line-height:1.75}
+
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .header-inner{height:58px}
+  .brand-text small{display:none}
+  .site-nav a{padding:7px 9px;font-size:12.5px}
+  .hero{padding:24px 16px 16px}
+  .search-box{border-radius:16px;flex-wrap:wrap;padding:8px}
+  .search-box input{width:100%;flex:1 1 100%;padding:8px 10px;font-size:15px}
+  .btn-search{width:100%;border-radius:12px;padding:12px}
+  .search-box .icon{display:none}
+  .chip{padding:8px 12px;font-size:12.5px}
+  .card{padding:14px}
+  .card-content{font-size:14.5px}
+  .filter-row{padding:10px}
+  .filter-row select,.filter-row input{min-width:100%}
+  .stats-strip{grid-template-columns:repeat(2,1fr);gap:8px}
+  .stat-mini{padding:10px 8px}
+  .stat-mini .v{font-size:19px}
+}
 </style>
 </head>
 <body>
@@ -172,208 +203,209 @@ td select{padding:5px 8px;border-radius:8px;border:1px solid var(--line);font-si
       <span class="brand-mark">🔧</span>
       <span class="brand-text">
         <strong>محرك بحث صيانة الإسكندرية</strong>
-        <small>طلبات عملاء حقيقية — اليوم</small>
+        <small>طلبات العملاء الحقيقية — اليوم فقط</small>
       </span>
     </a>
     <nav class="site-nav">
-      <a href="#/" id="nav-home">الرئيسية</a>
-      <a href="#/admin" id="nav-admin">لوحة التحكم</a>
+      <a href="#/" id="nav-home">البحث</a>
+      <a href="#/admin" id="nav-admin">لوحة الإدارة</a>
+      <span class="backend-status" id="backend-indicator">غير متصل</span>
     </nav>
   </div>
 </header>
 
 <main id="app">
 
+  <!-- =====================================================
+       صفحة البحث
+       ===================================================== -->
   <section id="view-home" class="view">
-    <div class="hero">
+
+    <!-- لافتة وضع التجربة -->
+    <div id="demo-banner" class="demo-banner hidden" style="margin-top:20px">
+      <div>
+        <div class="t">⚠️ وضع التجربة مُفعَّل — هذه النتائج بيانات تجريبية</div>
+        <div class="d">لا تعتبر هذه النتائج حقيقية. للبحث الحقيقي، عطّل وضع التجربة من لوحة الإدارة أو اتصل بمصدر بيانات.</div>
+      </div>
+      <button class="btn warn small" id="btn-exit-demo" type="button">إيقاف وضع التجربة</button>
+    </div>
+
+    <!-- لافتة عدم وجود مصدر بيانات -->
+    <div id="backend-notice"></div>
+
+    <!-- البحث -->
+    <div class="hero" id="hero-section">
       <h1>ابحث عن طلبات الصيانة في الإسكندرية</h1>
       <p class="sub">
-        محرك بحث متخصص في <b>طلبات العملاء</b> فقط — نعرض الأعطال والطلبات الحقيقية،
-        ولا نعرض إعلانات الفنيين ومقدمي الخدمة. تحديث تلقائي يومي.
+        محرك بحث لحظي عن <b>الأشخاص الذين يحتاجون إلى فني أو إصلاح جهاز منزلي</b> في الإسكندرية.<br>
+        لا نعرض إعلانات الفنيين، ولا نعرض نتائج قديمة — فقط طلبات حقيقية منشورة اليوم.
       </p>
       <div class="search-shell">
         <form class="search-box" id="home-search-form" role="search" autocomplete="off">
           <span class="icon">🔍</span>
-          <input type="search" id="home-q" placeholder="مثال: فني غسالات في سيدي بشر / التلاجة مش بتبرد" aria-label="ابحث" />
+          <input type="search" id="home-q" placeholder="مثال: غسالة / التلاجة مش بتبرد / فني تكييف في ميامي" aria-label="ابحث" />
           <button type="submit" class="btn-search">بحث</button>
         </form>
-        <div class="search-hint">اكتب كلمة واحدة أو جملة كاملة بالعامية المصرية — النظام يفهمها.</div>
+        <div class="search-hint">النظام يفهم العامية المصرية والأخطاء الإملائية.</div>
       </div>
       <div class="chips" id="home-chips"></div>
     </div>
-    <div class="container">
-      <div class="section-head">
-        <h2>🆕 أحدث الطلبات اليوم</h2>
-        <span class="count" id="latest-count"></span>
-      </div>
-      <div class="cards" id="latest-cards"></div>
-    </div>
-  </section>
 
-  <section id="view-results" class="view hidden">
-    <div class="container results-top">
-      <div class="results-search">
-        <form class="search-box" id="results-search-form" role="search" autocomplete="off">
-          <span class="icon">🔍</span>
-          <input type="search" id="results-q" placeholder="ابحث عن طلبات الصيانة في الإسكندرية" aria-label="ابحث" />
-          <button type="submit" class="btn-search">بحث</button>
-        </form>
+    <!-- إحصائيات اليوم -->
+    <div class="stats-strip" id="stats-strip"></div>
+
+    <!-- الفلاتر -->
+    <div class="filter-bar">
+      <div class="filter-row">
+        <span class="lbl">⏱ النطاق الزمني:</span>
+        <div id="time-chips"></div>
+        <span class="lbl" style="margin-inline-start:auto">🔽 الجهاز:</span>
+        <select id="f-device" style="flex:0 0 160px"><option value="">كل الأجهزة</option></select>
+        <span class="lbl">📍 المنطقة:</span>
+        <select id="f-area" style="flex:0 0 160px"><option value="">كل المناطق</option></select>
       </div>
-      <div class="results-layout">
-        <aside class="sidebar" id="sidebar">
-          <button class="btn ghost small sidebar-toggle" id="sidebar-toggle" type="button">⚙️ الفلاتر</button>
-          <div class="filter-group"><label for="f-device">نوع الجهاز</label><select id="f-device"><option value="">كل الأجهزة</option></select></div>
-          <div class="filter-group"><label for="f-area">المنطقة</label><select id="f-area"><option value="">كل المناطق</option></select></div>
-          <div class="filter-group"><label for="f-ptype">نوع الطلب</label><select id="f-ptype"><option value="">كل الأنواع</option></select></div>
-          <div class="filter-group"><label for="f-age">عمر الطلب</label>
-            <select id="f-age">
-              <option value="">الكل</option>
-              <option value="360">آخر 6 ساعات (الأحدث)</option>
-              <option value="720">آخر 12 ساعة</option>
-              <option value="1440">آخر 24 ساعة (اليوم)</option>
-            </select>
-          </div>
-          <div class="filter-group"><button class="btn ghost small" id="btn-reset-filters" type="button" style="width:100%;justify-content:center">↺ إعادة ضبط الفلاتر</button></div>
-          <div class="filter-group"><button class="btn ghost small" id="btn-locate" type="button" style="width:100%;justify-content:center">📍 استخدم موقعي (الأقرب)</button></div>
-        </aside>
-        <div>
-          <div class="analysis-panel" id="analysis-panel"></div>
-          <div class="results-bar">
-            <div class="results-count" id="results-count">—</div>
-            <div class="sort-tabs" id="sort-tabs">
-              <button data-sort="newest" class="active" type="button">الأحدث</button>
-              <button data-sort="relevance" type="button">الأكثر تطابقًا</button>
-              <button data-sort="nearest" type="button">الأقرب</button>
-            </div>
-          </div>
-          <div id="expand-notice"></div>
-          <div class="cards" id="results-cards"></div>
+    </div>
+
+    <!-- النتائج -->
+    <div class="results-wrap">
+      <div class="results-meta">
+        <div class="count" id="results-count">—</div>
+        <div class="sort" id="sort-tabs">
+          <button data-sort="newest" class="active" type="button">الأحدث</button>
+          <button data-sort="nearest" type="button">الأقرب</button>
         </div>
       </div>
+      <div id="results-cards"></div>
     </div>
   </section>
 
+  <!-- =====================================================
+       لوحة الإدارة
+       ===================================================== -->
   <section id="view-admin" class="view hidden">
     <div class="container">
       <div id="admin-gate" class="gate">
-        <h2>🔐 لوحة التحكم</h2>
-        <p>أدخل رمز الدخول للوصول إلى لوحة الإدارة.<br><small>(رمز تجريبي: 1234 — غيّره من CONFIG.adminPin)</small></p>
+        <h2>🔐 لوحة الإدارة</h2>
+        <p>أدخل رمز الدخول للوصول إلى لوحة الإدارة.<br><small>(الرمز التجريبي: 1234 — يمكن تغييره من CONFIG.adminPin)</small></p>
         <input type="password" id="admin-pin" inputmode="numeric" placeholder="••••" maxlength="8" />
         <button class="btn" id="admin-login" type="button">دخول</button>
       </div>
+
       <div id="admin-content" class="hidden">
         <div class="admin-head">
-          <h1>لوحة التحكم</h1>
+          <h1>لوحة الإدارة</h1>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="btn ghost small" id="btn-reset-data" type="button">↺ إعادة تعيين البيانات</button>
+            <button class="btn ghost small" id="btn-clear-real" type="button">🗑 مسح البيانات الحقيقية</button>
             <button class="btn ghost small" id="btn-logout" type="button">خروج</button>
           </div>
         </div>
+
         <div class="admin-grid" id="admin-stats"></div>
 
         <div class="tabs" id="admin-tabs">
-          <button data-tab="add-real" class="active" type="button">➕ إضافة طلب حقيقي</button>
-          <button data-tab="results" type="button">النتائج</button>
-          <button data-tab="sources" type="button">المصادر</button>
-          <button data-tab="notifications" type="button">التنبيهات</button>
+          <button data-tab="add" class="active" type="button">➕ إضافة طلب حقيقي</button>
+          <button data-tab="list" type="button">📋 الطلبات المُضافة</button>
+          <button data-tab="settings" type="button">⚙️ إعدادات</button>
         </div>
 
-        <div id="admin-tab-add-real">
+        <!-- إضافة طلب حقيقي -->
+        <div id="admin-tab-add">
           <div class="panel">
-            <h3>➕ إضافة طلب صيانة حقيقي برابط مباشر</h3>
-            <p style="font-size:13px;color:var(--muted);margin:0 0 14px">
-              الصق نص البوست الحقيقي + رابط البوست المباشر. النظام يستبعد تلقائيًا إعلانات الفنيين،
-              ويحفظ فقط طلبات العملاء.
+            <h3>➕ إضافة طلب عميل حقيقي</h3>
+            <p class="note">
+              الصق نص المنشور/التعليق + الرابط الأصلي المباشر.<br>
+              <b>شروط القبول:</b>
+              النص يجب أن يكون طلب خدمة من عميل (لا إعلان فني)،
+              والرابط يجب أن يكون رابطًا مباشرًا للمنشور/التعليق (يحتوي على <code>/posts/</code> أو <code>/status/</code> أو <code>t.me/ch/123</code>).
             </p>
             <form class="form-block" id="form-add-real">
-              <div class="f"><label for="new-content">نص الطلب (من المنشور الأصلي)</label>
-                <textarea id="new-content" placeholder="مثال: محتاج فني غسالات كويس في سيدي بشر، الغسالة مش بتعصر من امبارح."></textarea>
+              <div class="f">
+                <label for="new-content">نص الطلب (كما هو مكتوب في المنشور أو التعليق) *</label>
+                <textarea id="new-content" placeholder="مثال: حد يعرف فني غسالات كويس في سيدي بشر؟ الغسالة عندي مش بتعصر."></textarea>
               </div>
-              <div class="f"><label for="new-url">الرابط المباشر للمنشور الأصلي</label>
-                <input id="new-url" type="url" placeholder="https://www.facebook.com/groups/.../posts/123456789" />
+              <div class="f">
+                <label for="new-url">الرابط الأصلي المباشر للمنشور/التعليق *</label>
+                <input id="new-url" type="url" placeholder="https://www.facebook.com/groups/.../posts/123456" />
               </div>
-              <div class="f"><label for="new-source">المصدر</label>
-                <select id="new-source">
-                  <option value="Facebook">Facebook</option>
-                  <option value="Telegram">Telegram</option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="منتدى">منتدى / موقع</option>
-                  <option value="أخرى">أخرى</option>
-                </select>
+              <div class="row2">
+                <div class="f">
+                  <label for="new-source">المصدر</label>
+                  <select id="new-source">
+                    <option value="Facebook">Facebook</option>
+                    <option value="Telegram">Telegram</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="منتدى">منتدى / موقع</option>
+                    <option value="أخرى">أخرى</option>
+                  </select>
+                </div>
+                <div class="f">
+                  <label for="new-type">نوع المحتوى</label>
+                  <select id="new-type">
+                    <option value="post">منشور أصلي</option>
+                    <option value="comment">تعليق داخل منشور</option>
+                  </select>
+                </div>
               </div>
-              <div class="f"><label for="new-date">تاريخ النشر (اتركه فارغًا = الآن)</label>
+              <div class="f">
+                <label for="new-date">تاريخ النشر (اتركه فارغًا = الآن)</label>
                 <input id="new-date" type="datetime-local" />
               </div>
-              <button class="btn ok" type="submit" style="justify-content:center">➕ إضافة الطلب بالرابط المباشر</button>
+              <button class="btn ok" type="submit" style="justify-content:center">➕ إضافة الطلب</button>
             </form>
+            <div id="add-result" style="margin-top:12px;font-size:13px"></div>
           </div>
+        </div>
+
+        <!-- قائمة الطلبات -->
+        <div id="admin-tab-list" class="hidden">
           <div class="panel">
-            <h3>📥 استيراد من رابط RSS عام (اختياري)</h3>
-            <p style="font-size:13px;color:var(--muted);margin:0 0 12px">أي موقع/منتدى يوفّر RSS عام يمكن جلبه مباشرة. (قد يفشل بسبب CORS.)</p>
-            <div class="form-inline" style="grid-template-columns:1fr auto">
-              <div class="f"><label for="rss-url">رابط RSS</label><input id="rss-url" placeholder="https://example.com/feed.xml" /></div>
-              <button class="btn" id="btn-fetch-rss" type="button">استيراد</button>
+            <h3>📋 الطلبات المُضافة يدويًا (بيانات حقيقية)</h3>
+            <div id="admin-list-empty" style="color:var(--muted);font-size:13.5px">لا توجد طلبات مُضافة بعد.</div>
+            <div class="table-wrap" id="admin-list-wrap" style="display:none">
+              <table>
+                <thead><tr>
+                  <th>النص</th><th>الجهاز</th><th>المنطقة</th><th>النوع</th><th>الرابط</th><th>التاريخ</th><th>إجراءات</th>
+                </tr></thead>
+                <tbody id="admin-rows"></tbody>
+              </table>
             </div>
-            <div id="rss-result" style="margin-top:12px;font-size:13px"></div>
           </div>
         </div>
 
-        <div id="admin-tab-results" class="hidden">
-          <div class="panel"><h3>الأكثر طلبًا</h3><div id="admin-breakdown"></div></div>
-          <div class="admin-search">
-            <input type="search" id="admin-q" placeholder="ابحث داخل النتائج..." />
-            <select id="admin-status-filter" style="padding:10px 12px;border-radius:10px;border:1px solid var(--line)">
-              <option value="">كل الحالات</option>
-              <option value="active">ظاهر</option>
-              <option value="hidden">مخفي</option>
-            </select>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr>
-                <th>النص</th><th>الجهاز</th><th>المشكلة</th><th>المنطقة</th><th>نوع الطلب</th><th>المصدر</th><th>الرابط</th><th>التاريخ</th><th>الثقة</th><th>الحالة</th><th>إجراءات</th>
-              </tr></thead>
-              <tbody id="admin-rows"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div id="admin-tab-sources" class="hidden">
+        <!-- الإعدادات -->
+        <div id="admin-tab-settings" class="hidden">
           <div class="panel">
-            <h3>إضافة مصدر جديد</h3>
-            <div class="form-inline">
-              <div class="f"><label for="src-name">اسم المصدر</label><input id="src-name" placeholder="مثال: منتدى صيانة الإسكندرية" /></div>
-              <div class="f"><label for="src-type">النوع</label>
-                <select id="src-type">
-                  <option value="api">API رسمي</option>
-                  <option value="rss">RSS عام</option>
-                  <option value="social">منصة اجتماعية</option>
-                  <option value="web">موقع/منتدى</option>
-                  <option value="manual">إدخال يدوي</option>
-                </select>
+            <h3>⚙️ مصدر البيانات</h3>
+            <p class="note">
+              الموقع يحتاج إلى مصدر بيانات مباشر (Backend / API رسمي) لعرض طلبات جديدة تلقائيًا.<br>
+              بدون ذلك، يمكنك فقط إضافة الطلبات يدويًا من التبويب الأول.
+            </p>
+            <div class="form-block">
+              <div class="f">
+                <label for="set-api-url">رابط الـ API الخلفي (اختياري)</label>
+                <input id="set-api-url" type="url" placeholder="https://api.example.com" />
               </div>
-              <div class="f"><label for="src-url">الرابط</label><input id="src-url" placeholder="https://..." /></div>
-              <button class="btn" id="btn-add-source" type="button">إضافة</button>
+              <button class="btn" id="btn-save-api" type="button">حفظ ومحاولة الاتصال</button>
             </div>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>المصدر</th><th>النوع</th><th>الرابط</th><th>الحالة</th><th>آخر مزامنة</th><th>إجراءات</th></tr></thead>
-              <tbody id="admin-source-rows"></tbody>
-            </table>
-          </div>
-        </div>
 
-        <div id="admin-tab-notifications" class="hidden">
           <div class="panel">
-            <h3>نظام التنبيهات (منفصل)</h3>
-            <div class="form-inline" style="grid-template-columns:1fr 1fr auto">
-              <div class="f"><label for="alert-device">تنبيه عند طلب جهاز</label><select id="alert-device"></select></div>
-              <div class="f"><label for="alert-area">في منطقة</label><select id="alert-area"><option value="">كل المناطق</option></select></div>
-              <button class="btn" id="btn-add-alert" type="button">إضافة تنبيه</button>
-            </div>
+            <h3>⚠️ وضع التجربة</h3>
+            <p class="note">
+              وضع التجربة يعرض بيانات توضيحية منفصلة تمامًا عن البحث الحقيقي،
+              ويظهر معه شريط تحذيري واضح. لا يُستخدم أبدًا لتعويض عدم وجود بيانات حقيقية.
+            </p>
+            <button class="btn warn" id="btn-toggle-demo" type="button">تفعيل وضع التجربة</button>
           </div>
-          <div class="panel"><h3>التنبيهات المُسجّلة</h3><div id="admin-alerts"></div></div>
+
+          <div class="panel">
+            <h3>ℹ️ ملاحظة أمنية</h3>
+            <p class="note">
+              لا يتم عمل أي scraping أو تجاوز لتسجيل الدخول أو تجاوز أي حماية.
+              أي مصدر يجب أن يكون رسميًا (API / RSS عام / إدخال يدوي موثَّق).
+              المفاتيح السرية تُحفظ على الـ Backend فقط، ولا تُوضع في هذا الملف.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -384,658 +416,694 @@ td select{padding:5px 8px;border-radius:8px;border:1px solid var(--line);font-si
 <footer class="site-footer">
   <div class="container inner">
     <div class="note">
-      <strong>محرك بحث صيانة الإسكندرية</strong> — يعرض طلبات العملاء فقط (يستبعد إعلانات الفنيين).
-      زر «فتح الإعلان» يفتح الرابط الفعلي للمنشور أو بحثًا مباشرًا على المنصة بنص الإعلان.
+      <strong>محرك بحث صيانة الإسكندرية</strong> — يعرض فقط طلبات العملاء الحقيقية المنشورة اليوم.
+      لا نعرض إعلانات الفنيين، ولا نستنتج تواريخ، ولا ننشئ روابط وهمية.
     </div>
-    <div>© <span id="year"></span> — تحديث يومي</div>
+    <div>© <span id="year"></span> — نموذج لحظي</div>
   </div>
 </footer>
-
-<div id="link-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
-  <div class="modal">
-    <div class="modal-header">
-      <h3>🔗 إضافة رابط المنشور الأصلي</h3>
-      <button class="modal-close" type="button" id="modal-close-x" aria-label="إغلاق">✕</button>
-    </div>
-    <div class="modal-body">
-      <p class="modal-note">الصق الرابط الحقيقي للمنشور وسيُحفظ ويفتح فورًا.</p>
-      <div class="modal-post" id="modal-post-preview"></div>
-      <input type="url" id="modal-url-input" placeholder="https://www.facebook.com/groups/.../posts/123456" autocomplete="off" />
-      <div class="modal-hint">أمثلة: <code>facebook.com/groups/xxx/posts/123</code> — <code>t.me/channel/123</code></div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn ok" type="button" id="modal-save-open">💾 حفظ وفتح الرابط</button>
-      <button class="btn ghost" type="button" id="modal-cancel">إلغاء</button>
-    </div>
-  </div>
-</div>
 
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
 /* ==========================================================================
-   0) الإعدادات
+   0) الإعدادات العامة
    ========================================================================== */
 const CONFIG = {
-  dataVersion: 4,
-  storageKey: 'alex-maint-search-v4',
+  dataVersion: 5,
+  realKey: 'alex-real-v5',
+  demoKey: 'alex-demo-v5',
   adminPin: '1234',
   apiBaseUrl: '',
-  pageSize: 60
+  alexandriaCenter: { lat: 31.2001, lng: 29.9187 },
+  alexandriaRadiusKm: 30
 };
 
 /* ==========================================================================
-   1) أدوات مساعدة
+   1) أدوات عامة
    ========================================================================== */
-const AR_DIGITS='٠١٢٣٤٥٦٧٨٩';
+const AR_DIGITS = '٠١٢٣٤٥٦٧٨٩';
+
 function normalizeArabic(input){
-  if(input==null) return '';
-  let s=String(input);
-  s=s.replace(/[\u064B-\u065F\u0670\u0640]/g,'');
-  s=s.replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/ة/g,'ه');
-  s=s.replace(/[٠-٩]/g,d=>AR_DIGITS.indexOf(d));
-  s=s.replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim().toLowerCase();
+  if(input == null) return '';
+  let s = String(input);
+  s = s.replace(/[\u064B-\u065F\u0670\u0640]/g, '');
+  s = s.replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي').replace(/ة/g, 'ه');
+  s = s.replace(/[٠-٩]/g, d => AR_DIGITS.indexOf(d));
+  s = s.replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
   return s;
 }
-function tokenize(t){return normalizeArabic(t).split(' ').filter(w=>w.length>1);}
-function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function plural(n,f){return n===1?f[0]:n===2?f[1]:n<=10?f[2]:f[3];}
+
+function tokenize(text){ return normalizeArabic(text).split(' ').filter(w => w.length > 1); }
+
+function escapeHtml(s){
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function plural(n, forms){
+  if(n === 1) return forms[0];
+  if(n === 2) return forms[1];
+  if(n >= 3 && n <= 10) return forms[2];
+  return forms[3];
+}
+
 function timeAgo(iso){
-  const d=Math.max(0,Date.now()-new Date(iso).getTime()),s=Math.floor(d/1000);
-  if(s<60)return 'الآن';const m=Math.floor(s/60);
-  if(m<60)return 'منذ '+m+' '+plural(m,['دقيقة','دقيقتين','دقائق','دقيقة']);
-  const h=Math.floor(m/60);if(h<24)return 'منذ '+h+' '+plural(h,['ساعة','ساعتين','ساعات','ساعة']);
-  const dd=Math.floor(h/24);if(dd<30)return 'منذ '+dd+' '+plural(dd,['يوم','يومين','أيام','يوم']);
-  const mo=Math.floor(dd/30);return 'منذ '+mo+' '+plural(mo,['شهر','شهرين','شهور','شهر']);
+  const diff = Math.max(0, Date.now() - new Date(iso).getTime());
+  const sec = Math.floor(diff / 1000);
+  if(sec < 60) return 'منذ لحظات';
+  const min = Math.floor(sec / 60);
+  if(min < 60) return 'منذ ' + min + ' ' + plural(min, ['دقيقة','دقيقتين','دقائق','دقيقة']);
+  const hr = Math.floor(min / 60);
+  if(hr < 24) return 'منذ ' + hr + ' ' + plural(hr, ['ساعة','ساعتين','ساعات','ساعة']);
+  const day = Math.floor(hr / 24);
+  return 'منذ ' + day + ' ' + plural(day, ['يوم','يومين','أيام','يوم']);
 }
+
 function fullDate(iso){
-  try{return new Intl.DateTimeFormat('ar-EG',{dateStyle:'medium',timeStyle:'short'}).format(new Date(iso));}
-  catch(e){return new Date(iso).toLocaleString();}
+  try{
+    return new Intl.DateTimeFormat('ar-EG', { dateStyle:'medium', timeStyle:'short' }).format(new Date(iso));
+  }catch(e){ return new Date(iso).toLocaleString(); }
 }
+
+function startOfToday(){
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
+}
+
 function isToday(iso){
-  const d=new Date(iso),n=new Date();
-  return d.getFullYear()===n.getFullYear()&&d.getMonth()===n.getMonth()&&d.getDate()===n.getDate();
+  const t = new Date(iso).getTime();
+  return t >= startOfToday() && t <= Date.now() + 60000;
 }
 
 /* ==========================================================================
    2) مناطق الإسكندرية
    ========================================================================== */
-const AREAS=[
-  {name:'سيدي بشر',lat:31.2540,lng:29.9720},{name:'ميامي',lat:31.2600,lng:29.9900},
-  {name:'العصافرة',lat:31.2450,lng:29.9600},{name:'المندرة',lat:31.2570,lng:29.9800},
-  {name:'المنتزه',lat:31.2680,lng:30.0000},{name:'فيكتوريا',lat:31.2400,lng:29.9550},
-  {name:'لوران',lat:31.2320,lng:29.9450},{name:'جليم',lat:31.2280,lng:29.9400},
-  {name:'سموحة',lat:31.2200,lng:29.9350},{name:'الشاطبي',lat:31.2150,lng:29.9200},
-  {name:'الإبراهيمية',lat:31.2140,lng:29.9250},{name:'محرم بك',lat:31.1980,lng:29.9100},
-  {name:'محطة الرمل',lat:31.2010,lng:29.8970},{name:'كرموز',lat:31.1900,lng:29.9120},
-  {name:'العجمي',lat:31.1100,lng:29.7500},{name:'أبو قير',lat:31.3160,lng:30.0600},
-  {name:'المعمورة',lat:31.2880,lng:30.0200},{name:'السيوف',lat:31.2200,lng:29.9600},
-  {name:'باكوس',lat:31.2250,lng:29.9550},{name:'زيزينيا',lat:31.2350,lng:29.9500}
+const AREAS = [
+  { name:'سيدي بشر', lat:31.2540, lng:29.9720 },
+  { name:'ميامي', lat:31.2600, lng:29.9900 },
+  { name:'العصافرة', lat:31.2450, lng:29.9600 },
+  { name:'المندرة', lat:31.2570, lng:29.9800 },
+  { name:'المنتزه', lat:31.2680, lng:30.0000 },
+  { name:'فيكتوريا', lat:31.2400, lng:29.9550 },
+  { name:'لوران', lat:31.2320, lng:29.9450 },
+  { name:'جليم', lat:31.2280, lng:29.9400 },
+  { name:'سموحة', lat:31.2200, lng:29.9350 },
+  { name:'رشدي', lat:31.2250, lng:29.9450 },
+  { name:'ستانلي', lat:31.2420, lng:29.9500 },
+  { name:'الشاطبي', lat:31.2150, lng:29.9200 },
+  { name:'الإبراهيمية', lat:31.2140, lng:29.9250 },
+  { name:'كامب شيزار', lat:31.2100, lng:29.9100 },
+  { name:'محرم بك', lat:31.1980, lng:29.9100 },
+  { name:'محطة الرمل', lat:31.2010, lng:29.8970 },
+  { name:'كرموز', lat:31.1900, lng:29.9120 },
+  { name:'العجمي', lat:31.1100, lng:29.7500 },
+  { name:'أبو قير', lat:31.3160, lng:30.0600 },
+  { name:'المعمورة', lat:31.2880, lng:30.0200 },
+  { name:'السيوف', lat:31.2200, lng:29.9600 },
+  { name:'باكوس', lat:31.2250, lng:29.9550 },
+  { name:'زيزينيا', lat:31.2350, lng:29.9500 }
 ];
-function areaCoords(name){const a=AREAS.find(x=>x.name===name);return a?{lat:a.lat,lng:a.lng}:null;}
-function haversine(a,b){
-  if(!a||!b)return Infinity;const R=6371;
-  const dLat=(b.lat-a.lat)*Math.PI/180,dLng=(b.lng-a.lng)*Math.PI/180;
-  const la1=a.lat*Math.PI/180,la2=b.lat*Math.PI/180;
-  const h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
-  return 2*R*Math.asin(Math.sqrt(h));
+
+function areaCoords(name){
+  const a = AREAS.find(x => x.name === name);
+  return a ? { lat:a.lat, lng:a.lng } : null;
+}
+function haversine(a, b){
+  if(!a || !b) return Infinity;
+  const R = 6371;
+  const dLat = (b.lat - a.lat) * Math.PI / 180;
+  const dLng = (b.lng - a.lng) * Math.PI / 180;
+  const la1 = a.lat * Math.PI / 180, la2 = b.lat * Math.PI / 180;
+  const h = Math.sin(dLat/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(h));
 }
 
 /* ==========================================================================
    3) قواميس التصنيف
    ========================================================================== */
-const DEVICE_LEXICON={
-  'غسالات':{label:'غسالات',icon:'🧺',terms:['غساله','غسالات','غسال','غسالت','اتوماتيك','فوق اتوماتيك','هاف اتوماتيك','فل اتوماتيك','washing machine','washer']},
-  'ثلاجات':{label:'ثلاجات',icon:'🧊',terms:['تلاجه','تلاجات','ثلاجه','ثلاجات','ثلاج','فريزر','ديب فريزر','براد','نوفروست','refrigerator','fridge','بابين']},
-  'تكييفات':{label:'تكييفات',icon:'❄️',terms:['تكييف','تكييفات','تكيف','تكيفات','مكيف','سبليت','كاسيت','شيلر','دكت سبليت','air condition','ac']},
-  'بوتاجازات':{label:'بوتاجازات',icon:'🔥',terms:['بوتاجاز','بوتاجازات','بوتجاز','بوتجازات','فرن','افران','فرن غاز','شوايه','oven','cooker']},
-  'سخانات':{label:'سخانات',icon:'♨️',terms:['سخان','سخانات','سخان غاز','سخان كهربا','سخان كهرباء','هيتر','water heater','boiler']},
-  'ميكروويف':{label:'ميكروويف',icon:'📻',terms:['ميكروويف','ميكرويف','مايكروويف','مايكرويف','microwave']},
-  'مجففات':{label:'مجففات',icon:'🌀',terms:['مجفف','مجففه','مجففات','دراير','dryer','نشافه ملابس']},
-  'أخرى':{label:'أجهزة أخرى',icon:'📱',terms:['خلاط','مفرمه','كبه','غلايه','مروحه','مكنسه','تلفزيون','شفاط','فلتر مياه','اجهزه منزليه','جهاز منزلي','مضخه']}
-};
-const PROBLEM_LEXICON={
-  'تصريف المياه':['مش بتصرف','مبتصرفش','التصريف','تصريف','مش بتنزل الميه','الميه واقفه','بترجع ميه','مش بتفضي','الطرمبه','طلمبه الصرف','انسداد','مسدود','فلتر الصرف'],
-  'عدم التبريد':['مش بتبرد','مش ببرد','مش بتسقع','مش ساقعه','مش ساقع','مش بيسقع','مش بتلج','مش بيلج','سخنه','مش بارده','ضعيف التبريد','مش بتجمد','بتفصل وتشتغل'],
-  'عدم العصر أو الدوران':['مش بتعصر','مش بتلف','مش بتدور','الحله مش بتلف','مش عايزه تدور','واقفه','مش بتكمل البرنامج','بتقف في النص'],
-  'تسريب مياه':['بينقط','بتنقط','تنقيط','بتسرب','تسريب','بيرشح','بترشح','بتنزل ميه','رشح مياه'],
-  'عدم التسخين':['مش بتسخن','مش بيسخن','مش بتولع','مش بتشتعل','بارد','مش سخنه','مش بيسخن خالص'],
-  'مشكلة كهربائية':['مش بتشتغل','مش شغال','فصلت','بتقطع','شراره','قافله','مش بتوصل','فيوز','كابل','سلك','الكهربا','شورت','بيرستر'],
-  'صوت أو اهتزاز':['صوت عالي','بتصوت','بتهتز','اهتزاز','ضجيج','بتخبط','زعيق','صوت غريب'],
-  'تسريب غاز':['ريحة غاز','تسريب غاز','بتسرب غاز','خطر غاز','ريحه غاز'],
-  'مشكلة في الشعلة':['الشعله','شعله ضعيفه','مش بتشتعل','النار ضعيفه','عين مش بتولع','شعله صفرا'],
-  'صيانة دورية أو تنظيف':['صيانه دوريه','تنظيف','ضبط','معايره','فحص','مراجعه']
-};
-const POST_TYPE_LEXICON={
-  'أريد فني':['محتاج فني','عايز فني','محتاج حد','عايز حد','ممكن حد','حد يعرف','مين يعرف','مين بتاع','بتاع','مطلوب فني','عاوز','محتاجه','محتاج','عايز','دور على فني'],
-  'الجهاز عطلان':['عطلان','عطلانه','بايظ','بايظه','باظ','خرب','خربان','مش شغال','مش شغاله','واقف','تعبان','مش بتشتغل','مش بيعمل حاجه'],
-  'أبحث عن صيانة':['محتاج صيانه','عايز صيانه','ابحث عن صيانه','اريد صيانه','صيانه','يصلح','تصليح'],
-  'أبحث عن قطع غيار':['قطع غيار','قطعه غيار','سبير','فلتر','تايمر','طرمبه','طلمبه','سير','ريلاي','مكثف','كمبروسر','ترموستات','بلوف'],
-  'أبحث عن مركز صيانة':['مركز صيانه','توكيل','خدمه العملاء','صيانه معتمده','وكيل','فرع صيانه'],
-  'استفسار عن عطل':['استفسار','سؤال','ليه','ازاي','ازاى','معرفه السبب','حد يفهمني','بيسخن ليه','بتعمل كده ليه','سبب المشكله','حد يفسرلي']
+const DEVICE_LEXICON = {
+  'غسالات': { icon:'🧺', label:'غسالات', terms:['غساله','غسالات','غسال','غسالت','اتوماتيك','فوق اتوماتيك','هاف اتوماتيك','فل اتوماتيك','washing machine','washer'] },
+  'ثلاجات': { icon:'🧊', label:'ثلاجات', terms:['تلاجه','تلاجات','ثلاجه','ثلاجات','ثلاج','فريزر','ديب فريزر','براد','نوفروست','refrigerator','fridge'] },
+  'تكييفات': { icon:'❄️', label:'تكييفات', terms:['تكييف','تكييفات','تكيف','تكيفات','مكيف','سبليت','كاسيت','شيلر','air condition','ac'] },
+  'بوتاجازات': { icon:'🔥', label:'بوتاجازات', terms:['بوتاجاز','بوتاجازات','بوتجاز','بوتجازات','فرن','افران','فرن غاز','شوايه','oven','cooker'] },
+  'سخانات': { icon:'♨️', label:'سخانات', terms:['سخان','سخانات','سخان غاز','سخان كهربا','سخان كهرباء','هيتر','water heater','boiler'] },
+  'ميكروويف': { icon:'📻', label:'ميكروويف', terms:['ميكروويف','ميكرويف','مايكروويف','مايكرويف','microwave'] },
+  'مجففات': { icon:'🌀', label:'مجففات', terms:['مجفف','مجففه','مجففات','دراير','dryer'] },
+  'أخرى': { icon:'📱', label:'أجهزة أخرى', terms:['خلاط','مفرمه','كبه','غلايه','مروحه','مكنسه','تلفزيون','شفاط','فلتر مياه','مضخه'] }
 };
 
-/* كلمات الإعلانات / البيع */
-const COMMERCIAL_TERMS=['للبيع','بيع','معروض للبيع','عرض','عروض','خصم','خصومات','تخفيض','تخفيضات','سعر','اسعار','تمن','كاش','تقسيط','مستعمل','بالضمان','اشتري','شراء','تصفيه','اعلان','دعايه','براند','مستورد','بالكرتونه','الكميه محدوده','اتصل للطلب','للاعلان','معرضنا','منتجاتنا','بالتقسيط'];
-const NEWS_TERMS=['اخبار','تقرير','اطلقت','تطلق','شركه','تعلن','حصريه','مراجعه','اسعار اليوم','مقال'];
+const PROBLEM_LEXICON = {
+  'تصريف المياه': ['مش بتصرف','مبتصرفش','التصريف','مش بتنزل الميه','الميه واقفه','بترجع ميه','مش بتفضي','الطرمبه','طلمبه الصرف','انسداد','مسدود'],
+  'عدم التبريد': ['مش بتبرد','مش ببرد','مش بتسقع','مش ساقعه','مش ساقع','مش بيسقع','مش بتلج','مش بيلج','سخنه','مش بارده','ضعيف التبريد','مش بتجمد'],
+  'عدم العصر أو الدوران': ['مش بتعصر','مش بتلف','مش بتدور','الحله مش بتلف','مش عايزه تدور','واقفه','مش بتكمل البرنامج','بتقف في النص'],
+  'تسريب مياه': ['بينقط','بتنقط','تنقيط','بتسرب','تسريب','بيرشح','بترشح','بتنزل ميه','رشح مياه'],
+  'عدم التسخين': ['مش بتسخن','مش بيسخن','مش بتولع','مش بتشتعل','بارد','مش سخنه','مش بيسخن خالص'],
+  'مشكلة كهربائية': ['مش بتشتغل','مش شغال','فصلت','بتقطع','شراره','قافله','مش بتوصل','فيوز','كابل','سلك','الكهربا','شورت','بيرستر'],
+  'صوت أو اهتزاز': ['صوت عالي','بتصوت','بتهتز','اهتزاز','ضجيج','بتخبط','زعيق','صوت غريب'],
+  'تسريب غاز': ['ريحة غاز','تسريب غاز','بتسرب غاز','خطر غاز','ريحه غاز'],
+  'مشكلة في الشعلة': ['الشعله','شعله ضعيفه','مش بتشتعل','النار ضعيفه','عين مش بتولع','شعله صفرا']
+};
 
-/* =========================================================
-   ✅ جديد: كلمات كشف "الفني / مقدم الخدمة"
-   إذا وجدنا هذه الكلمات بكثرة → نستبعد المنشور
-   ========================================================= */
-const TECHNICIAN_AD_TERMS=[
-  'انا فني','أنا فني','نحن فني','احنا فني','فني محترف','فني متخصص','فني معتمد','فني خبره',
-  'خبره سنوات','خبرة سنوات','خبره طويله','خبره كبيره','سنوات الخبره','خبره في',
-  'خدماتنا','نتشرف','يسعدنا','نقدم لكم','نوفر لكم','شرفتونا','خدمتنا',
-  'متخصص في','متخصصين في','متخصصون','تخصصنا',
+const POST_TYPE_LEXICON = {
+  'شخص يبحث عن فني': ['محتاج فني','عايز فني','محتاج حد','عايز حد','ممكن حد','حد يعرف','مين يعرف','مين بتاع','مين عنده','حد عنده','مطلوب فني','عاوز','محتاجه','محتاج','عايز','دور على فني','حد يساعد','حد يبص'],
+  'الجهاز عطلان': ['عطلان','عطلانه','بايظ','بايظه','باظ','خرب','خربان','مش شغال','مش شغاله','واقف','تعبان','مش بتشتغل','مش بيعمل حاجه'],
+  'أبحث عن صيانة': ['محتاج صيانه','عايز صيانه','ابحث عن صيانه','اريد صيانه','صيانه','يصلح','تصليح'],
+  'أبحث عن قطع غيار': ['قطع غيار','قطعه غيار','سبير','فلتر','تايمر','طرمبه','طلمبه','سير','ريلاي','مكثف','كمبروسر','ترموستات','بلوف'],
+  'أبحث عن مركز صيانة': ['مركز صيانه','توكيل','خدمه العملاء','صيانه معتمده','وكيل','فرع صيانه'],
+  'استفسار عن عطل': ['استفسار','سؤال','ليه','ازاي','ازاى','معرفه السبب','حد يفهمني','بيسخن ليه','بتعمل كده ليه','سبب المشكله','حد يفسرلي']
+};
+
+/* كلمات كشف نوع النية — Intent Detection */
+const SERVICE_REQUEST_TERMS = [
+  'محتاج فني','محتاج حد','محتاج صيانه','محتاج مساعده','محتاجه','محتاجين','محتاج ضروري','محتاج',
+  'عايز فني','عايز حد','عايز صيانه','عايز','عاوز',
+  'حد يعرف','مين يعرف','مين بتاع','مين عنده','حد عنده','حد يساعد','حد يبص','حد يفهمني','حد يفسرلي',
+  'ممكن حد','هل حد','ياريت حد','لو حد يعرف','مين يعرف حد',
+  'عندي مشكله','عندي عطل','عندي غساله','عندي تلاجه','عندي تكييف','عندي بوتاجاز','عندي سخان',
+  'مش بتعصر','مش بتصرف','مش بتبرد','مش بتسقع','مش بيسخن','مش بتسخن','مش بتلف','مش شغال','مش شغاله','مش بتشتغل',
+  'بايظ','بايظه','عطلان','عطلانه','خربان','خربانه','باظ','واقف','واقفه',
+  'بتعمل صوت','بتصوت','بتهتز','بتسرب','بينقط','بتنقط','بتقف في النص',
+  'فصلت','بتقطع','بيسرب غاز','ريحة غاز',
+  'دور على فني','ابحث عن فني','محتاج مركز','محتاج قطع غيار',
+  'استفسار','سبب المشكله','بيسخن ليه','بتعمل كده ليه'
+];
+
+const SERVICE_PROVIDER_TERMS = [
+  'انا فني','أنا فني','احنا فني','نحن فني','فني محترف','فني متخصص','فني معتمد','فني خبره','فني غسالات','فني ثلاجات','فني تكييفات','فني بوتاجازات','فني سخانات',
+  'خبره سنوات','خبرة سنوات','خبره طويله','خبره كبيره','سنوات الخبره','خبره في','لدينا خبره',
+  'خدماتنا','نتشرف','يسعدنا','يشرفنا','تشرفنا','نقدم لكم','نوفر لكم','شرفتونا','خدمتنا','خدمات صيانه',
+  'متخصص في','متخصصين في','متخصصون','تخصصنا','نحن متخصصون',
   'شغل مضمون','شغل نظيف','ضمان سنه','ضمان سنتين','ضمان علي الشغل','قطع غيار اصليه','قطع غيار اصلي',
-  'بافضل الاسعار','افضل الاسعار','اسعار منافسه','اسعارنا','سعر خاص',
-  'اتصل بنا','اتصل الان','كلمنا','كلمنا الان','للتواصل','للحجز','احجز الان','رقمنا','رقمي','واتساب','واتس',
-  'خدمه 24','24 ساعه','24 ساعة','طوال الاسبوع','طوال اليوم','علي مدار الساعه','جميع ايام الاسبوع',
-  'صيانه جميع','صيانة جميع','صيانه جميع الماركات','جميع الماركات','جميع الانواع',
-  'مركز صيانه','مركز صيانة','ورشه','ورشة','شركه','شركة صيانه','توكيل معتمد','توكيل رسمي',
+  'بافضل الاسعار','افضل الاسعار','اسعار منافسه','اسعارنا','سعر خاص','سعر مميز',
+  'اتصل بنا','اتصل الان','كلمنا','كلمنا الان','للتواصل','للحجز','احجز الان','رقمنا','واتساب','واتس',
+  'خدمه 24','24 ساعه','24 ساعة','طوال الاسبوع','طوال اليوم','علي مدار الساعه',
+  'صيانه جميع','صيانة جميع','جميع الماركات','جميع الانواع',
+  'مركز صيانه','مركز صيانة','ورشه','ورشة','شركة صيانه','توكيل معتمد','توكيل رسمي',
   'نصلح','بنصلح','اصلاح جميع','نقوم ب','نقوم بصيانه',
-  'يشرفنا','تشرفنا','خدمات صيانه','خدماتنا في','خبرتنا','فريق عمل','فريق متخصص'
+  'فريق عمل','فريق متخصص','فريق محترف','فنيين متخصصين'
 ];
 
-/* كلمات تدل على عميل محتاج فعلاً (أولوية عالية) */
-const CUSTOMER_REQUEST_TERMS=[
-  'محتاج فني','عايز فني','محتاج حد','عايز حد','ممكن حد','حد يعرف','مين يعرف','مين بتاع','مين عنده',
-  'ياريت حد','محتاج مساعده','محتاج مساعدة','محتاجه','محتاجين','دور على فني','محتاج ضروري',
-  'عطلان','عطلانه','بايظ','بايظه','باظ','خرب','خربان','مش شغال','مش شغاله','مش بتشتغل','واقف','واقفه',
-  'مش بتعصر','مش بتصرف','مش بتبرد','مش بيسخن','مش بتسخن','بينقط','بتسرب','بتصوت','بتهتز','فصلت','بتقطع'
+const BUSINESS_AD_TERMS = [
+  'للبيع','معروض للبيع','عرض','عروض','خصم','خصومات','تخفيض','تخفيضات','سعر','اسعار','تمن',
+  'كاش','تقسيط','مستعمل','بالضمان','اشتري','شراء','تصفيه','اعلان','دعايه','براند','مستورد',
+  'بالكرتونه','الكميه محدوده','معرضنا','منتجاتنا','بالتقسيط','اشتري الان','احصل علي'
 ];
 
-const STOPWORDS=new Set(['في','من','على','عن','الى','الي','مع','هل','ايه','إيه','يا','جماعه','جماعة','حد','مين','عايز','محتاج','ممكن','عندي','عندنا','انا','هو','هي','دي','ده','دا','مش','لا','او','أو','و','ثم','كل','بعد','قبل','عشان','علشان','بس','كان','انت','هنا','هناك','بجد','لو','ان','إن','اللي','اللى'].map(normalizeArabic));
+const INFORMATIONAL_TERMS = [
+  'اخبار','تقرير','اطلقت','تطلق','اعلنت','تعلن','حصريه','مراجعه','اسعار اليوم','مقال',
+  'دراسه','احصائيه','دراسه جدوي','نصائح','خطوات','كيفيه','ازاي تحافظ','كيف تحافظ'
+];
 
-function detectFromLexicon(norm,lex){
-  let bestKey=null,bestScore=0;
+const STOPWORDS = new Set([
+  'في','من','على','عن','الى','الي','مع','هل','ايه','إيه','يا','جماعه','جماعة','حد','مين',
+  'انا','هو','هي','دي','ده','دا','مش','لا','او','أو','و','ثم','كل','بعد','قبل','عشان',
+  'علشان','بس','كان','انت','هنا','هناك','بجد','لو','ان','إن','اللي','اللى'
+].map(normalizeArabic));
+
+/* ==========================================================================
+   4) كشف النية (Intent Detection)
+   ========================================================================== */
+function countMatches(norm, terms){
+  let n = 0;
+  for(const t of terms){
+    const nt = normalizeArabic(t);
+    if(nt && norm.includes(nt)) n++;
+  }
+  return n;
+}
+
+function detectIntent(text){
+  const n = normalizeArabic(text);
+  const sReq  = countMatches(n, SERVICE_REQUEST_TERMS);
+  const sProv = countMatches(n, SERVICE_PROVIDER_TERMS);
+  const sBiz  = countMatches(n, BUSINESS_AD_TERMS);
+  const sInfo = countMatches(n, INFORMATIONAL_TERMS);
+
+  let intent = 'IRRELEVANT';
+
+  if(sBiz >= 2 && sBiz >= sReq) intent = 'BUSINESS_AD';
+  else if(sInfo >= 2 && sInfo >= sReq) intent = 'INFORMATIONAL';
+  else if(sProv >= 2 && sProv > sReq) intent = 'SERVICE_PROVIDER';
+  else if(sReq >= 1 && sReq >= sProv) intent = 'SERVICE_REQUEST';
+  else if(sProv >= 1) intent = 'SERVICE_PROVIDER';
+  else if(sReq >= 1) intent = 'SERVICE_REQUEST';
+
+  const total = sReq + sProv + sBiz + sInfo;
+  const confidence = total === 0 ? 0 : Number((Math.max(sReq, sProv, sBiz, sInfo) / total).toFixed(2));
+
+  return { intent, confidence, scores: { request:sReq, provider:sProv, business:sBiz, informational:sInfo } };
+}
+
+/* ==========================================================================
+   5) التحقق من الرابط الأصلي
+   ========================================================================== */
+function isValidOriginalUrl(url){
+  if(!url || typeof url !== 'string') return false;
+  if(!/^https:\/\//i.test(url)) return false;
+
+  const patterns = [
+    /\/posts\/[A-Za-z0-9_.-]+/i,
+    /\/permalink\.php\?[^#]*story_fbid=/i,
+    /\/permalink\/[A-Za-z0-9_.-]+/i,
+    /\/status(es)?\/[A-Za-z0-9_.-]+/i,
+    /\/groups\/[^\/\s]+\/posts\/[A-Za-z0-9_.-]+/i,
+    /\/comments\/[A-Za-z0-9_.-]+/i,
+    /instagram\.com\/(p|reel|tv)\/[A-Za-z0-9_-]+/i,
+    /t\.me\/[A-Za-z0-9_]+\/\d+/i,
+    /(youtube\.com\/watch\?v=|youtu\.be\/)[A-Za-z0-9_-]+/i,
+    /twitter\.com\/[^\/]+\/status\/\d+/i,
+    /x\.com\/[^\/]+\/status\/\d+/i
+  ];
+  return patterns.some(p => p.test(url));
+}
+
+/* ==========================================================================
+   6) التصنيف المركزي
+   ========================================================================== */
+function detectFromLexicon(norm, lex){
+  let bestKey = null, bestScore = 0;
   for(const key of Object.keys(lex)){
-    const def=lex[key],terms=Array.isArray(def)?def:def.terms;
-    let score=0;
-    for(const term of terms){
-      const nt=normalizeArabic(term);
-      if(!nt||nt.length<2)continue;
-      if(norm.includes(nt)) score+=Math.min(nt.length,10)+(nt.includes(' ')?5:0);
+    const terms = lex[key].terms || lex[key];
+    let score = 0;
+    for(const t of terms){
+      const nt = normalizeArabic(t);
+      if(!nt || nt.length < 2) continue;
+      if(norm.includes(nt)) score += Math.min(nt.length, 10) + (nt.includes(' ') ? 5 : 0);
     }
-    if(score>bestScore){bestScore=score;bestKey=key;}
+    if(score > bestScore){ bestScore = score; bestKey = key; }
   }
-  return {key:bestKey,score:bestScore};
+  return { key: bestKey, score: bestScore };
 }
+
 function detectLocation(norm){
-  let best=null,len=0;
-  for(const a of AREAS){const na=normalizeArabic(a.name);if(na&&norm.includes(na)&&na.length>len){best=a.name;len=na.length;}}
-  return best||'غير محدد';
-}
-function countMatches(norm,terms){
-  let s=0;
-  for(const t of terms){const nt=normalizeArabic(t);if(nt&&norm.includes(nt))s++;}
-  return s;
-}
-function detectCommercial(norm,pt){
-  let s=countMatches(norm,COMMERCIAL_TERMS);
-  if(pt==='أريد فني'||pt==='الجهاز عطلان'||pt==='استفسار عن عطل')s-=2;
-  return s>=2;
-}
-function detectNews(norm){return countMatches(norm,NEWS_TERMS)>=2;}
-
-/* =========================================================
-   التصنيف المركزي: يفرّق بين "عميل محتاج" و"فني بيعرض خدمته"
-   ========================================================= */
-function classify(text){
-  const norm=normalizeArabic(text);
-  const dev=detectFromLexicon(norm,DEVICE_LEXICON);
-  const prob=detectFromLexicon(norm,PROBLEM_LEXICON);
-  const pt=detectFromLexicon(norm,POST_TYPE_LEXICON);
-  const loc=detectLocation(norm);
-  const com=detectCommercial(norm,pt.key);
-  const news=detectNews(norm);
-
-  const techScore=countMatches(norm,TECHNICIAN_AD_TERMS);
-  const custScore=countMatches(norm,CUSTOMER_REQUEST_TERMS);
-
-  const device_type=dev.key||'أخرى';
-  const problem_type=prob.key||'غير محدد';
-  const post_type=pt.key||'غير محدد';
-
-  let category='طلب صيانة';
-  let excluded_reason=null;
-
-  /* ✅ أولوية: كشف إعلانات الفنيين */
-  const looksLikeTechnician = techScore>=2 && techScore>custScore;
-  if(looksLikeTechnician){
-    category='إعلان فني / مقدم خدمة';
-    excluded_reason='منشور من فني أو مركز صيانة — ليس طلب عميل';
-  } else if(com){
-    category='إعلان تجاري';
-    excluded_reason='إعلان أو عرض بيع';
-  } else if(news){
-    category='أخبار/محتوى عام';
-    excluded_reason='أخبار أو محتوى غير متعلق بالصيانة';
-  } else if(custScore===0 && techScore===0 && dev.score===0 && prob.score===0){
-    category='غير مصنّف';
-    excluded_reason='لا يحتوي على طلب صيانة واضح';
+  let best = null, len = 0;
+  for(const a of AREAS){
+    const na = normalizeArabic(a.name);
+    if(na && norm.includes(na) && na.length > len){ best = a.name; len = na.length; }
   }
+  return best || 'المنطقة غير محددة';
+}
 
-  const raw=(dev.score*.4)+(prob.score*.3)+(pt.score*.2)+(custScore*.6)-(techScore*.5);
-  const confidence_score=Math.max(.30,Math.min(.98,Math.max(.30,raw/14)));
+function classify(text){
+  const norm = normalizeArabic(text);
+  const dev = detectFromLexicon(norm, DEVICE_LEXICON);
+  const prob = detectFromLexicon(norm, PROBLEM_LEXICON);
+  const pt = detectFromLexicon(norm, POST_TYPE_LEXICON);
+  const loc = detectLocation(norm);
+  const intentInfo = detectIntent(text);
 
   return {
-    device_type,problem_type,post_type,location:loc,
-    category,excluded_reason,
-    confidence_score:Number(confidence_score.toFixed(2)),
-    is_technician_ad:looksLikeTechnician,
-    tech_score:techScore,cust_score:custScore
+    device_type: dev.key || 'أخرى',
+    problem_type: prob.key || 'غير محدد',
+    post_type: pt.key || 'غير محدد',
+    location: loc,
+    intent: intentInfo.intent,
+    intent_confidence: intentInfo.confidence,
+    intent_scores: intentInfo.scores
   };
 }
 
 /* ==========================================================================
-   4) بناء روابط المنصات
+   7) التخزين
    ========================================================================== */
-/* رابط بحث حقيقي يفتح في المنصة مباشرة ويعرض نتائج فعلية */
-function buildPlatformSearchUrl(source, query){
-  const q=String(query||'').trim().replace(/\s+/g,' ').slice(0,140);
-  if(!q)return '';
-  const enc=encodeURIComponent(q);
-  const s=String(source||'').toLowerCase();
-  if(s.includes('facebook')) return `https://www.facebook.com/search/posts/?q=${enc}`;
-  if(s.includes('telegram')) return `https://www.google.com/search?q=${enc}+site%3At.me`;
-  if(s.includes('instagram')) return `https://www.instagram.com/explore/tags/${encodeURIComponent(q.replace(/[\s#]+/g,''))}/`;
-  if(s.includes('tiktok')) return `https://www.tiktok.com/search?q=${enc}`;
-  return `https://www.google.com/search?q=${enc}+${encodeURIComponent('صيانة الإسكندرية')}`;
-}
-function isRealDirectUrl(url){
-  if(!url||typeof url!=='string')return false;
-  if(!/^https?:\/\//i.test(url))return false;
-  return /\/(posts|permalink|status|p|watch|reel|video|threads|t)\//i.test(url)
-      || /[?&](story_fbid|fbid|v)=/i.test(url)
-      || /t\.me\/[^\/]+\/\d+/i.test(url);
-}
-
-/* ==========================================================================
-   5) طبقة المصادر
-   ========================================================================== */
-const DEFAULT_SOURCES=[
-  {id:'src-manual',name:'إدخال يدوي (Admin)',type:'manual',url:'',enabled:true,status:'متصل',lastSyncAt:null,adapter:'none',note:'إضافة طلبات حقيقية بروابط مباشرة من لوحة التحكم.'},
-  {id:'src-rss',name:'RSS عام (منتدى/موقع)',type:'rss',url:'',enabled:true,status:'متصل (RSS)',lastSyncAt:null,adapter:'rss',note:'الصق رابط RSS في خانة الاستيراد لسحب بوستات حقيقية.'},
-  {id:'src-fb-search',name:'Facebook — بحث بوستات',type:'social',url:'https://www.facebook.com/search/posts',enabled:true,status:'متصل (روابط بحث)',lastSyncAt:null,adapter:'link',note:'روابط بحث حقيقية على فيسبوك.'},
-  {id:'src-tg-search',name:'Telegram — قنوات عامة',type:'social',url:'https://t.me/s',enabled:true,status:'متصل (روابط بحث)',lastSyncAt:null,adapter:'link',note:'ربط قنوات عامة عبر t.me/s/{channel} أو Bot API.'},
-  {id:'src-fb-graph',name:'Facebook Graph API',type:'api',url:'https://developers.facebook.com/docs/graph-api',enabled:false,status:'يحتاج صلاحية رسمية',lastSyncAt:null,adapter:'none',note:'يتطلب App Review.'},
-  {id:'src-ig-graph',name:'Instagram Graph API',type:'api',url:'https://developers.facebook.com/docs/instagram-api',enabled:false,status:'يحتاج صلاحية رسمية',lastSyncAt:null,adapter:'none',note:'حسابات Business فقط.'},
-  {id:'src-tt',name:'TikTok API',type:'api',url:'https://developers.tiktok.com',enabled:false,status:'يحتاج صلاحية رسمية',lastSyncAt:null,adapter:'none',note:'لا يوجد وصول عام.'}
-];
-
-/* ==========================================================================
-   6) بيانات اليوم — طلبات عملاء حديثة فقط
-   ========================================================================== */
-const CUSTOMER_POSTS=[
-  {source:'Facebook',content:'محتاج فني غسالات كويس في سيدي بشر، الغسالة مش بتعصر من امبارح.'},
-  {source:'Facebook',content:'التلاجة مش بتسقع من الصبح وحد يعرف فني محترم؟ في ميامي.'},
-  {source:'Telegram',content:'التكييف بينقط مياه دلوقتي، مين فني تكييف في العصافرة؟'},
-  {source:'Facebook',content:'الغسالة مش بتصرف الميه، محتاج حد يبص عليها النهارده في المندرة.'},
-  {source:'Facebook',content:'بوتاجاز عينه مش بتولع من شوية، محتاج فني بوتاجازات في المنتزه.'},
-  {source:'Facebook',content:'سخان الغاز مش بيسخن، مين يعرف فني سخانات في فيكتوريا حالًا؟'},
-  {source:'Facebook',content:'عايز حد بتاع تكييف شاطر في لوران، التكييف مش بيبرد خالص.'},
-  {source:'Telegram',content:'حد يعرف حد يصلح بوتجاز؟ الفرن مش بيشتغل في جليم من امبارح.'},
-  {source:'Facebook',content:'ميكروويف مش بيسخن، محتاج صيانة حالًا في سموحة.'},
-  {source:'Facebook',content:'غساله مش بتلف الحلة، محتاج فني في محرم بك النهارده.'},
-  {source:'Facebook',content:'التلاجة مش ساقعة والموتور شغال على الفاضي — محطة الرمل.'},
-  {source:'Facebook',content:'أبحث عن قطع غيار سخان كهرباء في الإبراهيمية.'},
-  {source:'Facebook',content:'الغسالة الاوتوماتيك بتعمل صوت عالي جدًا وبتهتز — الشاطبي.'},
-  {source:'Telegram',content:'مشكلة في تكييف سبليت بينزل مياه جوه الأوضة — العجمي.'},
-  {source:'Facebook',content:'محتاج مركز صيانة معتمد لتلاجة سامسونج في سموحة.'},
-  {source:'Facebook',content:'ديب فريزر مش بيلج خالص من امبارح، حد يساعدني في أبو قير.'},
-  {source:'Facebook',content:'بوتاجاز غاز فيه ريحة غاز قوية، محتاج فني ضروري — كرموز.'},
-  {source:'Telegram',content:'غسالة فوق اتوماتيك مش بتصرف وبتعمل صوت — المندرة.'},
-  {source:'Facebook',content:'محتاج فني مجفف ملابس في سموحة، المجفف مش بيسخن من الصبح.'},
-  {source:'Telegram',content:'مكنسة كهربائية مش شغالة، حد يعرف فني أجهزة منزلية في ميامي؟'},
-  {source:'Facebook',content:'سخان كهرباء بيقطع كهرباء من امبارح، استفسار عن السبب — لوران.'},
-  {source:'Facebook',content:'تكييف غرفتي بيصوت صوت غريب، مين فني في سيدي بشر؟'},
-  {source:'Telegram',content:'محتاج فني ثلاجات في المندرة، التلاجة بتسرب مياه من تحت.'},
-  {source:'Facebook',content:'الغسالة بتقف في نص البرنامج، محتاج فني حالًا في باكوس.'},
-  {source:'Facebook',content:'عايز فني تكييف شاطر في سموحة، التكييف مش بيبرد خالص من امبارح.'}
-];
-
-/* إعلانات الفنيين — تُستبعد تلقائيًا */
-const TECHNICIAN_ADS=[
-  {source:'Facebook',content:'أنا فني تكييفات خبرة 10 سنوات، صيانة جميع الماركات، شغل مضمون، ضمان سنة، اتصل بنا: 0100...'},
-  {source:'Facebook',content:'مركز صيانة غسالات معتمد، خدمة 24 ساعة، أسعار منافسة، للتواصل واتساب.'},
-  {source:'Telegram',content:'فني ثلاجات محترف، خبرة سنوات، بافضل الاسعار، كلمنا الان للحجز.'},
-  {source:'Facebook',content:'خدماتنا في صيانة جميع الأجهزة المنزلية، فريق متخصص، نتشرف بخدمتكم.'},
-  {source:'Facebook',content:'ورشة صيانة بوتاجازات وسخانات، نصلح جميع الانواع، للتواصل على الرقم.'},
-  {source:'Instagram',content:'شركة صيانة معتمدة، نقدم لكم خدمات الصيانة بضمان، اسعارنا منافسة.'}
-];
-
-/* إعلانات بيع وأخبار — تُستبعد أيضًا */
-const OTHER_EXCLUDED=[
-  {source:'Facebook',content:'غسالات للبيع جديدة بالضمان بأسعار ممتازة، عرض خاص وتقسيط.'},
-  {source:'Facebook',content:'عروض تكييفات 2025 بأفضل الأسعار وخصومات وتقسيط، اتصل للطلب.'},
-  {source:'Instagram',content:'صور غسالات حديثة من معرضنا، خصم 20% لفترة محدودة.'},
-  {source:'موقع أخبار',content:'شركة سامسونج تعلن عن إطلاق غسالات جديدة بأسعار تنافسية في السوق المصري.'}
-];
-
-/* أوقات دقائق مضت — كلها أقل من 6 ساعات (اليوم) */
-const FRESH_TIMES=[2,7,13,19,26,34,42,51,61,72,85,98,113,130,149,170,194,221,252,287,326,369,417,470,528];
-
-function buildItems(){
-  const now=Date.now();
-  const all=[];
-  let counter=1;
-
-  CUSTOMER_POSTS.forEach((p,i)=>{
-    const minutesAgo=FRESH_TIMES[i]||(i*20+5);
-    const created=new Date(now-minutesAgo*60000).toISOString();
-    const cls=classify(p.content);
-    const searchUrl=buildPlatformSearchUrl(p.source,p.content);
-    all.push({
-      id:'itm-'+String(counter++).padStart(3,'0'),
-      source:p.source,
-      source_url:'',
-      original_post_url:searchUrl,
-      direct_post_url:null,
-      search_url:searchUrl,
-      content:p.content,
-      category:cls.category,
-      device_type:cls.device_type,
-      problem_type:cls.problem_type,
-      location:cls.location,
-      post_type:cls.post_type,
-      created_at:created,
-      collected_at:new Date().toISOString(),
-      confidence_score:cls.confidence_score,
-      status:'active',
-      excluded_reason:cls.excluded_reason,
-      also_seen_in:[]
-    });
-  });
-
-  TECHNICIAN_ADS.forEach((p,i)=>{
-    const minutesAgo=20+i*35;
-    const created=new Date(now-minutesAgo*60000).toISOString();
-    const cls=classify(p.content);
-    all.push({
-      id:'tech-'+String(counter++).padStart(3,'0'),
-      source:p.source,
-      source_url:'',
-      original_post_url:buildPlatformSearchUrl(p.source,p.content),
-      direct_post_url:null,
-      search_url:buildPlatformSearchUrl(p.source,p.content),
-      content:p.content,
-      category:cls.category,
-      device_type:cls.device_type,
-      problem_type:cls.problem_type,
-      location:cls.location,
-      post_type:cls.post_type,
-      created_at:created,
-      collected_at:new Date().toISOString(),
-      confidence_score:cls.confidence_score,
-      status:'active',
-      excluded_reason:cls.excluded_reason||'منشور من فني أو مركز صيانة — ليس طلب عميل',
-      also_seen_in:[]
-    });
-  });
-
-  OTHER_EXCLUDED.forEach((p,i)=>{
-    const minutesAgo=40+i*60;
-    const created=new Date(now-minutesAgo*60000).toISOString();
-    const cls=classify(p.content);
-    all.push({
-      id:'oth-'+String(counter++).padStart(3,'0'),
-      source:p.source,
-      source_url:'',
-      original_post_url:buildPlatformSearchUrl(p.source,p.content),
-      direct_post_url:null,
-      search_url:buildPlatformSearchUrl(p.source,p.content),
-      content:p.content,
-      category:cls.category,
-      device_type:cls.device_type,
-      problem_type:cls.problem_type,
-      location:cls.location,
-      post_type:cls.post_type,
-      created_at:created,
-      collected_at:new Date().toISOString(),
-      confidence_score:cls.confidence_score,
-      status:'active',
-      excluded_reason:cls.excluded_reason||'محتوى غير متعلق بطلب صيانة',
-      also_seen_in:[]
-    });
-  });
-
-  return dedupe(all);
-}
-
-/* منع التكرار */
-function fingerprint(t){return normalizeArabic(t).replace(/\s+/g,'');}
-function similarity(a,b){
-  const A=new Set(tokenize(a)),B=new Set(tokenize(b));
-  if(!A.size||!B.size)return 0;
-  let i=0;A.forEach(t=>{if(B.has(t))i++;});
-  return i/(A.size+B.size-i);
-}
-function dedupe(items){
-  const sorted=items.slice().sort((a,b)=>new Date(a.created_at)-new Date(b.created_at));
-  const kept=[],byFp=new Map();
-  for(const it of sorted){
-    const fp=fingerprint(it.content);
-    if(byFp.has(fp)){mergeDuplicate(byFp.get(fp),it);continue;}
-    let near=null;
-    for(const k of kept){if(similarity(k.content,it.content)>=.92){near=k;break;}}
-    if(near){mergeDuplicate(near,it);continue;}
-    byFp.set(fp,it);kept.push(it);
-  }
-  return kept;
-}
-function mergeDuplicate(target,dup){
-  if(!target.also_seen_in.includes(dup.source))target.also_seen_in.push(dup.source);
-  if(dup.confidence_score>target.confidence_score)target.confidence_score=dup.confidence_score;
-  if(!target.direct_post_url && dup.direct_post_url){
-    target.direct_post_url=dup.direct_post_url;
-    target.original_post_url=dup.direct_post_url;
-  }
-}
-
-/* ==========================================================================
-   7) الحالة والتخزين
-   ========================================================================== */
-const state={
-  items:[],sources:[],alerts:[],query:'',analysis:null,sort:'newest',
-  expanded:false,userLocation:null,filters:{device:'',area:'',postType:'',age:''},
-  adminTab:'add-real',adminQuery:'',adminStatus:'',adminAuthed:false
-};
-function save(){
-  try{localStorage.setItem(CONFIG.storageKey,JSON.stringify({
-    version:CONFIG.dataVersion,items:state.items,sources:state.sources,alerts:state.alerts
-  }));}catch(e){}
-}
-function load(){
+function loadReal(){
   try{
-    const raw=localStorage.getItem(CONFIG.storageKey);
-    if(!raw)return null;
-    const d=JSON.parse(raw);
-    if(!d||d.version!==CONFIG.dataVersion||!Array.isArray(d.items))return null;
-    return d;
-  }catch(e){return null;}
+    const raw = localStorage.getItem(CONFIG.realKey);
+    if(!raw) return [];
+    const d = JSON.parse(raw);
+    return Array.isArray(d) ? d : [];
+  }catch(e){ return []; }
 }
-function initData(force){
-  const stored=force?null:load();
-  if(stored){
-    state.items=stored.items;
-    state.sources=stored.sources&&stored.sources.length?stored.sources:JSON.parse(JSON.stringify(DEFAULT_SOURCES));
-    state.alerts=stored.alerts||[];
-  }else{
-    state.items=buildItems();
-    state.sources=JSON.parse(JSON.stringify(DEFAULT_SOURCES));
-    state.alerts=[];
-    save();
-  }
+function saveReal(){
+  try{ localStorage.setItem(CONFIG.realKey, JSON.stringify(state.realItems)); }catch(e){}
+}
+function loadDemoEnabled(){
+  try{ return localStorage.getItem(CONFIG.demoKey) === '1'; }catch(e){ return false; }
+}
+function saveDemoEnabled(v){
+  try{ localStorage.setItem(CONFIG.demoKey, v ? '1' : '0'); }catch(e){}
 }
 
 /* ==========================================================================
-   8) البحث
+   8) البيانات التجريبية (وضع التجربة فقط)
    ========================================================================== */
-function blankAnalysis(){return {device_type:null,problem_type:null,post_type:null,location:'غير محدد',category:null,excluded_reason:null,confidence_score:0};}
-function scoreItem(item,q,qTokens){
-  let score=0;
-  if(q.device_type){if(item.device_type!==q.device_type)return -1;score+=60;}
-  if(q.problem_type&&item.problem_type===q.problem_type)score+=25;
-  if(q.location&&q.location!=='غير محدد'&&item.location===q.location)score+=30;
-  if(q.post_type&&item.post_type===q.post_type)score+=12;
-  const itemTokens=new Set(tokenize(item.content));
-  let overlap=0;
-  for(const t of qTokens){if(STOPWORDS.has(t))continue;if(itemTokens.has(t))overlap++;}
-  score+=overlap*5;
-  if(item.post_type==='أريد فني'||item.post_type==='الجهاز عطلان')score+=8;
-  score+=(item.confidence_score||0)*4;
-  return score;
+function buildDemoItems(){
+  const now = Date.now();
+  const raw = [
+    { source:'Facebook', minutesAgo:3,  content:'حد يعرف فني غسالات كويس في سيدي بشر؟ الغسالة عندي مش بتعصر.' },
+    { source:'Facebook', minutesAgo:7,  content:'التلاجة مش بتسقع من الصبح وحد يعرف فني محترم؟ في ميامي.' },
+    { source:'Telegram', minutesAgo:15, content:'التكييف بينقط مياه دلوقتي، مين فني تكييف في العصافرة؟' },
+    { source:'Facebook', minutesAgo:22, content:'الغسالة مش بتصرف الميه، محتاج حد يبص عليها النهارده في المندرة.' },
+    { source:'Facebook', minutesAgo:34, content:'بوتاجاز عينه مش بتولع من شوية، محتاج فني بوتاجازات في المنتزه.' },
+    { source:'Facebook', minutesAgo:48, content:'سخان الغاز مش بيسخن، مين يعرف فني سخانات في فيكتوريا حالًا؟' },
+    { source:'Facebook', minutesAgo:63, content:'عايز حد بتاع تكييف شاطر في لوران، التكييف مش بيبرد خالص.' },
+    { source:'Telegram', minutesAgo:81, content:'حد يعرف حد يصلح بوتجاز؟ الفرن مش بيشتغل في جليم من امبارح.' },
+    { source:'Facebook', minutesAgo:99, content:'ميكروويف مش بيسخن، محتاج صيانة حالًا في سموحة.' },
+    { source:'Facebook', minutesAgo:124, content:'غساله مش بتلف الحلة، محتاج فني في محرم بك النهارده.' },
+    { source:'Facebook', minutesAgo:155, content:'التلاجة مش ساقعة والموتور شغال على الفاضي — محطة الرمل.' },
+    { source:'Facebook', minutesAgo:192, content:'أبحث عن قطع غيار سخان كهرباء في الإبراهيمية.' },
+    { source:'Telegram', minutesAgo:236, content:'مشكلة في تكييف سبليت بينزل مياه جوه الأوضة — العجمي.' },
+    { source:'Facebook', minutesAgo:289, content:'ديب فريزر مش بيلج خالص من امبارح، حد يساعدني في أبو قير.' },
+    { source:'Facebook', minutesAgo:352, content:'بوتاجاز غاز فيه ريحة غاز قوية، محتاج فني ضروري — كرموز.' }
+  ];
+  return raw.map((p, i) => {
+    const created = new Date(now - p.minutesAgo * 60000).toISOString();
+    const cls = classify(p.content);
+    return {
+      id: 'demo-' + String(i + 1).padStart(3, '0'),
+      source: p.source,
+      source_name: p.source,
+      original_url: '',
+      content: p.content,
+      created_at: created,
+      collected_at: new Date().toISOString(),
+      device_type: cls.device_type,
+      problem_type: cls.problem_type,
+      location: cls.location,
+      post_type: cls.post_type,
+      intent: cls.intent,
+      is_comment: false,
+      confidence_score: cls.intent_confidence,
+      is_demo: true
+    };
+  });
 }
-function distanceOf(item){const c=areaCoords(item.location);if(!c||!state.userLocation)return Infinity;return haversine(state.userLocation,c);}
+
+/* ==========================================================================
+   9) الحالة
+   ========================================================================== */
+const state = {
+  realItems: [],       // طلبات حقيقية (مضافة من الإدارة أو من الـ Backend)
+  demoItems: [],       // بيانات وضع التجربة فقط
+  demoEnabled: false,
+  backendConnected: false,
+  backendChecked: false,
+  query: '',
+  filters: { device:'', area:'', time:'today' },
+  sort: 'newest',
+  userLocation: null,
+  adminAuthed: false,
+  adminTab: 'add'
+};
+
+/* ==========================================================================
+   10) الفلترة والبحث
+   ========================================================================== */
+function timeRangeMs(mode){
+  if(mode === 'today') return startOfToday();
+  if(mode === '1h')  return Date.now() - 3600000;
+  if(mode === '3h')  return Date.now() - 10800000;
+  if(mode === '6h')  return Date.now() - 21600000;
+  if(mode === '12h') return Date.now() - 43200000;
+  if(mode === '24h') return Date.now() - 86400000;
+  return startOfToday();
+}
+
+function activeItems(){
+  const real = state.realItems;
+  if(state.demoEnabled) return state.demoItems.concat(real);
+  return real;
+}
+
 function computeResults(){
-  const q=state.query.trim();
-  const analysis=q?classify(q):blankAnalysis();
-  const qTokens=q?tokenize(q):[];
-  const list=[];let excludedCount=0;
-  const ageLimit=state.filters.age?parseInt(state.filters.age):0;
+  const q = state.query.trim();
+  const qNorm = q ? normalizeArabic(q) : '';
+  const qTokens = q ? tokenize(q) : [];
 
-  for(const it of state.items){
-    if(it.status!=='active')continue;
-    if(it.excluded_reason&&!state.expanded){excludedCount++;continue;}
-    if(analysis.device_type&&it.device_type!==analysis.device_type)continue;
-    if(state.filters.device&&it.device_type!==state.filters.device)continue;
-    if(state.filters.area&&it.location!==state.filters.area)continue;
-    if(state.filters.postType&&it.post_type!==state.filters.postType)continue;
-    if(ageLimit){
-      const minutes=(Date.now()-new Date(it.created_at).getTime())/60000;
-      if(minutes>ageLimit)continue;
+  // تحليل البحث للكلمات المفتاحية
+  const searchDevice = q ? detectFromLexicon(qNorm, DEVICE_LEXICON).key : null;
+  const searchArea = q ? detectLocation(qNorm) : 'المنطقة غير محددة';
+  const minTime = timeRangeMs(state.filters.time);
+
+  const list = [];
+  let totalForRange = 0;
+
+  for(const it of activeItems()){
+    // ✅ شرط 1: يجب أن تكون النية SERVICE_REQUEST
+    if(it.intent !== 'SERVICE_REQUEST') continue;
+
+    // ✅ شرط 2: يجب أن يكون الرابط الأصلي صالحًا (إلا في وضع التجربة)
+    const hasValidUrl = isValidOriginalUrl(it.original_url);
+    if(!hasValidUrl && !it.is_demo) continue;
+
+    // ✅ شرط 3: ضمن النطاق الزمني
+    const t = new Date(it.created_at).getTime();
+    if(t < minTime) continue;
+    if(t > Date.now() + 120000) continue; // لا نقبل مستقبلًا بعيدًا
+
+    totalForRange++;
+
+    // ✅ شرط 4: الفلاتر
+    if(state.filters.device && it.device_type !== state.filters.device) continue;
+    if(state.filters.area && it.location !== state.filters.area) continue;
+
+    // ✅ شرط 5: مطابقة البحث
+    let score = 1;
+    if(q){
+      // مطابقة الجهاز
+      if(searchDevice){
+        if(it.device_type !== searchDevice) continue;
+        score += 60;
+      }
+      // مطابقة المنطقة
+      if(searchArea && searchArea !== 'المنطقة غير محددة'){
+        if(it.location === searchArea) score += 30;
+      }
+      // تطابق نصي
+      const itemTokens = new Set(tokenize(it.content));
+      let overlap = 0;
+      for(const t of qTokens){
+        if(STOPWORDS.has(t)) continue;
+        if(itemTokens.has(t)) overlap++;
+      }
+      if(overlap === 0 && !searchDevice) continue;
+      score += overlap * 5;
     }
-    const score=q?scoreItem(it,analysis,qTokens):1;
-    if(q&&score<=0)continue;
-    list.push({item:it,score,distance:distanceOf(it)});
+
+    // أولوية للإسكندرية (الكل هنا إسكندرية لكن نأكد)
+    score += 5;
+
+    list.push({ item: it, score, distance: distanceOf(it) });
   }
 
-  if(state.sort==='newest')list.sort((a,b)=>new Date(b.item.created_at)-new Date(a.item.created_at));
-  else if(state.sort==='nearest')list.sort((a,b)=>(a.distance-b.distance)||(new Date(b.item.created_at)-new Date(a.item.created_at)));
-  else list.sort((a,b)=>(b.score-a.score)||(new Date(b.item.created_at)-new Date(a.item.created_at)));
+  // الترتيب
+  if(state.sort === 'newest'){
+    list.sort((a, b) => new Date(b.item.created_at) - new Date(a.item.created_at));
+  } else if(state.sort === 'nearest'){
+    list.sort((a, b) => (a.distance - b.distance) || (new Date(b.item.created_at) - new Date(a.item.created_at)));
+  }
 
-  state.analysis=analysis;
-  return {analysis,list,excludedCount};
+  return { list, totalForRange };
+}
+
+function distanceOf(it){
+  if(!state.userLocation) return Infinity;
+  const c = areaCoords(it.location);
+  if(!c) return Infinity;
+  return haversine(state.userLocation, c);
 }
 
 /* ==========================================================================
-   9) العرض
+   11) الإحصائيات
    ========================================================================== */
-function deviceBadge(item){
-  const d=DEVICE_LEXICON[item.device_type];
-  return (d?d.icon:'📱')+' '+(d?d.label:item.device_type);
+function computeStats(){
+  const minTime = timeRangeMs(state.filters.time);
+  const counters = { total:0, 'غسالات':0, 'ثلاجات':0, 'تكييفات':0, 'بوتاجازات':0, 'سخانات':0, 'أخرى':0 };
+
+  for(const it of activeItems()){
+    if(it.intent !== 'SERVICE_REQUEST') continue;
+    const hasValidUrl = isValidOriginalUrl(it.original_url);
+    if(!hasValidUrl && !it.is_demo) continue;
+    const t = new Date(it.created_at).getTime();
+    if(t < minTime) continue;
+    if(t > Date.now() + 120000) continue;
+
+    counters.total++;
+    if(counters[it.device_type] !== undefined) counters[it.device_type]++;
+    else counters['أخرى']++;
+  }
+  return counters;
 }
 
-/* =========================================================
-   ✅ الزر الرئيسي "فتح الإعلان" يفتح الرابط الفعلي مباشرة
-   ========================================================= */
-function cardHtml(item,opts){
-  const o=opts||{};
-  const hasDirect=isRealDirectUrl(item.direct_post_url);
-  const openUrl=hasDirect?item.direct_post_url:(item.search_url||buildPlatformSearchUrl(item.source,item.content));
-  const seen=(item.also_seen_in&&item.also_seen_in.length)
-    ? '<span title="ظهر في مصادر أخرى">🔁 مكرر من: '+escapeHtml(item.also_seen_in.join('، '))+'</span>' : '';
-  const excluded=item.excluded_reason?'<span class="badge excluded">⚠️ '+escapeHtml(item.excluded_reason)+'</span>':'';
-  const realBadge=hasDirect?'<span class="badge real">✅ رابط مباشر</span>':'';
-  const freshBadge=isToday(item.created_at)?'<span class="badge fresh">🆕 جديد اليوم</span>':'';
-  const distTxt=(state.sort==='nearest'&&isFinite(o.distance))?'<span>🧭 '+o.distance.toFixed(1)+' كم</span>':'';
+/* ==========================================================================
+   12) العرض
+   ========================================================================== */
+function deviceBadge(it){
+  const d = DEVICE_LEXICON[it.device_type];
+  return (d ? d.icon : '📱') + ' ' + (d ? d.label : it.device_type);
+}
 
-  /* زر واحد: يفتح الرابط الفعلي مباشرة (بدون مودال) */
-  const openBtn = openUrl
-    ? `<a class="btn ${hasDirect?'ok':''}" href="${escapeHtml(openUrl)}" target="_blank" rel="noopener noreferrer">🔗 ${hasDirect?'فتح الإعلان الأصلي':'فتح الإعلان على '+escapeHtml(item.source)}</a>`
-    : '';
+function cardHtml(it){
+  const hasUrl = isValidOriginalUrl(it.original_url);
+  const fresh = isToday(it.created_at) ? '<span class="badge fresh">🆕 اليوم</span>' : '';
+  const commentBadge = it.is_comment ? '<span class="badge comment">💬 تعليق</span>' : '';
+  const demoBadge = it.is_demo ? '<span class="badge" style="background:#fef3c7;color:#92400e">⚠️ تجريبي</span>' : '';
 
-  const editBtn = hasDirect?'':'<button class="btn ghost" type="button" data-action="add-link" data-id="'+escapeHtml(item.id)+'">➕ إضافة رابط مباشر</button>';
+  const dist = (state.sort === 'nearest' && isFinite(distanceOf(it)))
+    ? '<span>🧭 ' + distanceOf(it).toFixed(1) + ' كم</span>' : '';
+
+  let actionHtml = '';
+  if(hasUrl){
+    actionHtml = `<a class="btn" href="${escapeHtml(it.original_url)}" target="_blank" rel="noopener noreferrer">🔗 فتح الطلب الأصلي</a>`;
+  } else {
+    actionHtml = `<span class="btn disabled" title="الرابط الأصلي غير متاح من مصدر البيانات">🔗 فتح الطلب الأصلي</span>
+                  <span class="badge norelink">⚠️ الرابط الأصلي غير متاح من مصدر البيانات</span>`;
+  }
 
   return `
-    <article class="card" data-id="${escapeHtml(item.id)}">
+    <article class="card">
       <div class="card-top">
-        <span class="badge device">${escapeHtml(deviceBadge(item))}</span>
-        <span class="badge problem">${escapeHtml(item.problem_type)}</span>
-        <span class="badge ptype">${escapeHtml(item.post_type)}</span>
-        ${freshBadge}${realBadge}${excluded}
+        <span class="badge device">${escapeHtml(deviceBadge(it))}</span>
+        <span class="badge problem">${escapeHtml(it.problem_type)}</span>
+        <span class="badge ptype">${escapeHtml(it.post_type)}</span>
+        ${fresh}${commentBadge}${demoBadge}
       </div>
-      <p class="card-content">${escapeHtml(item.content)}</p>
+      <p class="card-content">${escapeHtml(it.content)}</p>
       <div class="card-meta">
-        <span>📍 ${escapeHtml(item.location)}</span>
-        <span>🕐 ${escapeHtml(timeAgo(item.created_at))}</span>
-        ${distTxt}
-        <span>المصدر: ${escapeHtml(item.source)}</span>
-        <span title="${escapeHtml(fullDate(item.created_at))}">🗓 ${escapeHtml(fullDate(item.created_at))}</span>
-        ${seen}
+        <span>📍 ${escapeHtml(it.location)}</span>
+        <span>🕐 ${escapeHtml(timeAgo(it.created_at))}</span>
+        ${dist}
+        <span>📱 المصدر: ${escapeHtml(it.source_name || it.source)}</span>
+        <span title="${escapeHtml(fullDate(it.created_at))}">🗓 ${escapeHtml(fullDate(it.created_at))}</span>
       </div>
-      <div class="card-actions">
-        ${openBtn}${editBtn}
-        <button class="btn ghost" type="button" data-action="copy" data-id="${escapeHtml(item.id)}">📋 نسخ النص</button>
-        <span class="badge" title="درجة ثقة التصنيف">ثقة ${Math.round((item.confidence_score||0)*100)}%</span>
-      </div>
+      <div class="card-actions">${actionHtml}</div>
     </article>`;
 }
 
-function renderHome(){
-  const chips=document.getElementById('home-chips');
-  const quick=[
-    {key:'غسالات',label:'🧺 غسالات'},{key:'ثلاجات',label:'🧊 ثلاجات'},
-    {key:'تكييفات',label:'❄️ تكييفات'},{key:'بوتاجازات',label:'🔥 بوتاجازات'},
-    {key:'سخانات',label:'♨️ سخانات'},{key:'أخرى',label:'📱 أخرى'}
+function renderBackendNotice(){
+  const box = document.getElementById('backend-notice');
+  const heroSection = document.getElementById('hero-section');
+  const hasRealData = state.realItems.length > 0;
+  const connected = state.backendConnected;
+
+  if(connected || hasRealData){
+    box.innerHTML = '';
+    heroSection.classList.remove('hidden');
+    return;
+  }
+
+  // لا يوجد Backend ولا بيانات حقيقية → أظهر اللافتة
+  box.innerHTML = `
+    <div class="big-notice">
+      <span class="icon">🛰️</span>
+      <h2>محرك البحث يحتاج إلى مصدر بيانات مباشر</h2>
+      <p>
+        حتى يعرض الموقع <b>نتائج حقيقية وفورية</b>، يجب ربطه بمصدر بيانات رسمي
+        (API / RSS عام / إدخال يدوي موثَّق).<br>
+        لا نعرض أي نتائج قديمة أو وهمية على أنها حقيقية.
+      </p>
+      <p style="font-size:13px;color:#78350f">
+        للبدء فورًا: افتح <b>لوحة الإدارة</b> وأضف طلبات حقيقية بروابط أصلية موثَّقة.
+      </p>
+      <div class="actions">
+        <button class="btn" type="button" id="btn-goto-admin">فتح لوحة الإدارة</button>
+        <button class="btn ghost" type="button" id="btn-open-demo">تجربة الواجهة (Demo)</button>
+      </div>
+    </div>`;
+  heroSection.classList.add('hidden');
+}
+
+function renderStats(){
+  const s = computeStats();
+  const items = [
+    { k:'طلبات في النطاق', v:s.total, cls:'' },
+    { k:'🧺 غسالات', v:s['غسالات'], cls:'' },
+    { k:'🧊 ثلاجات', v:s['ثلاجات'], cls:'g' },
+    { k:'❄️ تكييفات', v:s['تكييفات'], cls:'r' },
+    { k:'🔥 بوتاجازات', v:s['بوتاجازات'], cls:'a' },
+    { k:'♨️ سخانات', v:s['سخانات'], cls:'f' },
+    { k:'📱 أخرى', v:s['أخرى'], cls:'s' }
   ];
-  chips.innerHTML=quick.map(q=>`<button class="chip" type="button" data-chip="${escapeHtml(q.key)}">${escapeHtml(q.label)}</button>`).join('');
+  document.getElementById('stats-strip').innerHTML = items.map(i =>
+    `<div class="stat-mini ${i.cls}"><div class="k">${escapeHtml(i.k)}</div><div class="v">${i.v}</div></div>`
+  ).join('');
+}
 
-  const latest=state.items
-    .filter(i=>i.status==='active'&&!i.excluded_reason)
-    .sort((a,b)=>new Date(b.created_at)-new Date(a.created_at))
-    .slice(0,9);
+function renderTimeChips(){
+  const modes = [
+    { v:'today', l:'اليوم فقط' },
+    { v:'1h',    l:'آخر ساعة' },
+    { v:'3h',    l:'آخر 3 ساعات' },
+    { v:'6h',    l:'آخر 6 ساعات' },
+    { v:'12h',   l:'آخر 12 ساعة' },
+    { v:'24h',   l:'آخر 24 ساعة' }
+  ];
+  const wrap = document.getElementById('time-chips');
+  wrap.innerHTML = modes.map(m =>
+    `<button class="time-chip ${state.filters.time === m.v ? 'on' : ''}" type="button" data-time="${m.v}" style="margin-inline-end:6px">${escapeHtml(m.l)}</button>`
+  ).join('');
+}
 
-  const todayCount=latest.filter(i=>isToday(i.created_at)).length;
-  document.getElementById('latest-count').textContent=
-    latest.length+' طلب ('+todayCount+' جديد اليوم)';
-
-  document.getElementById('latest-cards').innerHTML=latest.map(i=>cardHtml(i)).join('')
-    ||'<div class="empty"><div class="big">📭</div><h3>لا توجد طلبات اليوم</h3></div>';
+function renderChips(){
+  const quick = [
+    { key:'غسالات', label:'🧺 غسالات' },
+    { key:'ثلاجات', label:'🧊 ثلاجات' },
+    { key:'تكييفات', label:'❄️ تكييفات' },
+    { key:'بوتاجازات', label:'🔥 بوتاجازات' },
+    { key:'سخانات', label:'♨️ سخانات' },
+    { key:'أخرى', label:'📱 أخرى' }
+  ];
+  document.getElementById('home-chips').innerHTML = quick.map(q =>
+    `<button class="chip" type="button" data-chip="${escapeHtml(q.key)}">${escapeHtml(q.label)}</button>`
+  ).join('');
 }
 
 function renderResults(){
-  const {analysis,list,excludedCount}=computeResults();
-  const panel=document.getElementById('analysis-panel');
-  const q=state.query.trim();
-  if(q){
-    const devLabel=analysis.device_type&&DEVICE_LEXICON[analysis.device_type]?DEVICE_LEXICON[analysis.device_type].label:(analysis.device_type||'—');
-    panel.innerHTML=`
-      <div class="title">تحليل البحث الذكي</div>
-      <div class="tags">
-        <span class="tag">الجهاز: <b>${escapeHtml(devLabel)}</b></span>
-        <span class="tag">المشكلة: <b>${escapeHtml(analysis.problem_type||'غير محددة')}</b></span>
-        <span class="tag">المنطقة: <b>${escapeHtml(analysis.location||'غير محددة')}</b></span>
-        <span class="tag">نوع الطلب: <b>${escapeHtml(analysis.post_type||'غير محدد')}</b></span>
+  const { list } = computeResults();
+  const countEl = document.getElementById('results-count');
+  const wrap = document.getElementById('results-cards');
+  const q = state.query.trim();
+
+  countEl.textContent = list.length + ' نتيجة' + (q ? ' لـ «' + q + '»' : '') + ' — ' + labelForTime(state.filters.time);
+
+  if(list.length === 0){
+    wrap.innerHTML = `
+      <div class="empty">
+        <div class="big">🔍</div>
+        <h3>لا توجد طلبات صيانة جديدة اليوم بهذا البحث.</h3>
+        <p>لم نعرض أي نتائج قديمة لتعويض ذلك.</p>
+        <p class="hint">جرّب توسيع النطاق الزمني أو تغيير كلمة البحث.</p>
       </div>`;
-  }else{
-    panel.innerHTML=`<div class="title">تحليل البحث الذكي</div><div class="tags"><span class="tag">كل الطلبات مرتبة من الأحدث — اكتب كلمة للتصفية</span></div>`;
+    return;
   }
-  document.getElementById('results-count').textContent=list.length+' نتيجة'+(q?' لـ «'+q+'»':'');
 
-  const notice=document.getElementById('expand-notice');
-  if(excludedCount>0&&!state.expanded){
-    notice.innerHTML=`<div class="notice"><span>🚫 تم استبعاد ${excludedCount} منشور (إعلانات فنيين / بيع / أخبار) — نعرض طلبات العملاء فقط.</span><button class="btn ghost small" type="button" id="btn-expand">توسيع البحث</button></div>`;
-  }else if(state.expanded){
-    notice.innerHTML=`<div class="notice"><span>وضع «توسيع البحث» مُفعّل — يتم عرض كل شيء.</span><button class="btn ghost small" type="button" id="btn-collapse">إغلاق</button></div>`;
-  }else{notice.innerHTML='';}
-
-  const wrap=document.getElementById('results-cards');
-  if(!list.length){
-    wrap.innerHTML=`<div class="empty"><div class="big">🔍</div><h3>لا توجد نتائج مطابقة</h3><p>جرّب كلمات أبسط أو اختر منطقة أخرى.</p><button class="btn ghost" type="button" id="btn-clear-all">إعادة ضبط</button></div>`;
-  }else{
-    wrap.innerHTML=list.slice(0,CONFIG.pageSize).map(r=>cardHtml(r.item,r)).join('');
-  }
-  document.getElementById('f-device').value=state.filters.device;
-  document.getElementById('f-area').value=state.filters.area;
-  document.getElementById('f-ptype').value=state.filters.postType;
-  document.getElementById('f-age').value=state.filters.age;
-  document.getElementById('results-q').value=state.query;
-  document.querySelectorAll('#sort-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.sort===state.sort));
+  wrap.innerHTML = list.map(r => cardHtml(r.item)).join('');
 }
 
+function labelForTime(mode){
+  return ({
+    today:'اليوم فقط', '1h':'آخر ساعة', '3h':'آخر 3 ساعات',
+    '6h':'آخر 6 ساعات', '12h':'آخر 12 ساعة', '24h':'آخر 24 ساعة'
+  })[mode] || 'اليوم فقط';
+}
+
+/* ==========================================================================
+   13) التنقل
+   ========================================================================== */
+function setView(name){
+  document.getElementById('view-home').classList.toggle('hidden', name !== 'home');
+  document.getElementById('view-admin').classList.toggle('hidden', name !== 'admin');
+  document.getElementById('nav-home').classList.toggle('active', name === 'home');
+  document.getElementById('nav-admin').classList.toggle('active', name === 'admin');
+  if(name === 'admin') renderAdmin();
+  if(name === 'home'){ renderBackendNotice(); renderStats(); renderResults(); renderDemoBanner(); }
+}
+
+function renderDemoBanner(){
+  const b = document.getElementById('demo-banner');
+  b.classList.toggle('hidden', !state.demoEnabled);
+}
+
+function route(){
+  const hash = location.hash || '#/';
+  if(hash.startsWith('#/admin')){ setView('admin'); return; }
+  setView('home');
+}
+
+/* ==========================================================================
+   14) لوحة الإدارة
+   ========================================================================== */
 function renderAdmin(){
   if(!state.adminAuthed){
     document.getElementById('admin-gate').classList.remove('hidden');
@@ -1045,531 +1113,386 @@ function renderAdmin(){
   document.getElementById('admin-gate').classList.add('hidden');
   document.getElementById('admin-content').classList.remove('hidden');
 
-  const items=state.items;
-  const active=items.filter(i=>i.status==='active');
-  const customerReqs=active.filter(i=>!i.excluded_reason&&i.post_type!=='غير محدد'&&i.device_type);
-  const techAds=active.filter(i=>i.excluded_reason&&i.excluded_reason.includes('فني'));
-  const now=Date.now();
-  const today=active.filter(i=>isToday(i.created_at)).length;
-  const last24=active.filter(i=>now-new Date(i.created_at).getTime()<=86400000).length;
-  const countBy=(arr,key)=>arr.reduce((m,i)=>{const k=i[key]||'غير محدد';m[k]=(m[k]||0)+1;return m;},{});
-  const byDevice=countBy(customerReqs,'device_type');
-  const byArea=countBy(customerReqs,'location');
-  const bySource=countBy(customerReqs,'source');
-  const realCount=active.filter(i=>isRealDirectUrl(i.direct_post_url)).length;
+  // إحصائيات
+  const real = state.realItems;
+  const todayReal = real.filter(i => isToday(i.created_at) && i.intent === 'SERVICE_REQUEST');
+  const withUrl = real.filter(i => isValidOriginalUrl(i.original_url));
+  const commentsCount = real.filter(i => i.is_comment).length;
 
-  document.getElementById('admin-stats').innerHTML=`
-    <div class="stat"><div class="k">طلبات عملاء اليوم</div><div class="v ok">${today}</div></div>
-    <div class="stat"><div class="k">طلبات (آخر 24 ساعة)</div><div class="v accent">${last24}</div></div>
-    <div class="stat"><div class="k">إجمالي طلبات العملاء</div><div class="v">${customerReqs.length}</div></div>
-    <div class="stat"><div class="k">🚫 إعلانات فنيين مستبعدة</div><div class="v warn">${techAds.length}</div></div>
-    <div class="stat"><div class="k">✅ روابط مباشرة حقيقية</div><div class="v ok">${realCount}</div></div>
-    <div class="stat"><div class="k">🧺 غسالات</div><div class="v">${byDevice['غسالات']||0}</div></div>
-    <div class="stat"><div class="k">🧊 ثلاجات</div><div class="v">${byDevice['ثلاجات']||0}</div></div>
-    <div class="stat"><div class="k">❄️ تكييفات</div><div class="v">${byDevice['تكييفات']||0}</div></div>`;
+  const countBy = (arr, k) => arr.reduce((m, i) => {
+    const key = i[k] || 'غير محدد'; m[key] = (m[key] || 0) + 1; return m;
+  }, {});
+  const byDevice = countBy(todayReal, 'device_type');
 
-  const bars=(obj,limit)=>{
-    const e=Object.entries(obj).sort((a,b)=>b[1]-a[1]).slice(0,limit||6);
-    const max=Math.max(1,...e.map(x=>x[1]));
-    if(!e.length)return '<div style="color:var(--muted);font-size:13px">لا توجد بيانات</div>';
-    return e.map(([k,v])=>`<div class="bar-row"><span>${escapeHtml(k)}</span><span class="bar"><i style="width:${Math.round(v/max*100)}%"></i></span><span class="n">${v}</span></div>`).join('');
-  };
-  document.getElementById('admin-breakdown').innerHTML=`
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-      <div><div style="font-size:12.5px;font-weight:800;color:var(--muted);margin-bottom:8px">الأجهزة الأكثر طلبًا</div>${bars(byDevice,6)}</div>
-      <div><div style="font-size:12.5px;font-weight:800;color:var(--muted);margin-bottom:8px">المناطق الأكثر طلبًا</div>${bars(byArea,6)}</div>
-      <div><div style="font-size:12.5px;font-weight:800;color:var(--muted);margin-bottom:8px">المصادر الأكثر نشاطًا</div>${bars(bySource,6)}</div>
-    </div>`;
+  document.getElementById('admin-stats').innerHTML = `
+    <div class="stat"><div class="k">إجمالي الطلبات الحقيقية</div><div class="v accent">${real.length}</div></div>
+    <div class="stat"><div class="k">طلبات اليوم</div><div class="v ok">${todayReal.length}</div></div>
+    <div class="stat"><div class="k">✅ بروابط صالحة</div><div class="v">${withUrl.length}</div></div>
+    <div class="stat"><div class="k">💬 تعليقات</div><div class="v">${commentsCount}</div></div>
+    <div class="stat"><div class="k">🧺 غسالات</div><div class="v">${byDevice['غسالات'] || 0}</div></div>
+    <div class="stat"><div class="k">🧊 ثلاجات</div><div class="v">${byDevice['ثلاجات'] || 0}</div></div>
+    <div class="stat"><div class="k">❄️ تكييفات</div><div class="v">${byDevice['تكييفات'] || 0}</div></div>
+    <div class="stat"><div class="k">⚠️ وضع التجربة</div><div class="v ${state.demoEnabled ? 'warn' : ''}">${state.demoEnabled ? 'مُفعَّل' : 'معطَّل'}</div></div>`;
 
-  const q=normalizeArabic(state.adminQuery);
-  const rows=items.filter(it=>{
-    if(state.adminStatus&&it.status!==state.adminStatus)return false;
-    if(!q)return true;
-    return normalizeArabic(it.content+' '+it.device_type+' '+it.location+' '+it.source+' '+it.problem_type).includes(q);
-  });
-
-  const devOpts=Object.keys(DEVICE_LEXICON);
-  const probOpts=Object.keys(PROBLEM_LEXICON).concat(['غير محدد']);
-  const ptOpts=Object.keys(POST_TYPE_LEXICON).concat(['غير محدد']);
-  const areaOpts=AREAS.map(a=>a.name).concat(['غير محدد']);
-  const optSel=(opts,sel)=>opts.map(o=>`<option value="${escapeHtml(o)}"${o===sel?' selected':''}>${escapeHtml(o)}</option>`).join('');
-
-  document.getElementById('admin-rows').innerHTML=rows.map(it=>{
-    const real=isRealDirectUrl(it.direct_post_url);
-    const urlCell=real
-      ? `<a href="${escapeHtml(it.direct_post_url)}" target="_blank" rel="noopener noreferrer" style="color:var(--ok);font-weight:700">✅ مباشر</a>`
-      : (it.search_url?`<a href="${escapeHtml(it.search_url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">🔎 بحث</a>`:'—');
-    return `<tr data-id="${escapeHtml(it.id)}">
-      <td><span class="txt">${escapeHtml(it.content)}</span></td>
-      <td><select data-field="device_type">${optSel(devOpts,it.device_type)}</select></td>
-      <td><select data-field="problem_type">${optSel(probOpts,it.problem_type)}</select></td>
-      <td><select data-field="location">${optSel(areaOpts,it.location)}</select></td>
-      <td><select data-field="post_type">${optSel(ptOpts,it.post_type)}</select></td>
-      <td>${escapeHtml(it.source)}</td>
-      <td>${urlCell}</td>
-      <td style="white-space:nowrap">${escapeHtml(timeAgo(it.created_at))}</td>
-      <td>${Math.round((it.confidence_score||0)*100)}%</td>
-      <td><span class="status-dot ${it.status==='hidden'?'hidden-dot':''}">${it.status==='hidden'?'مخفي':'ظاهر'}</span></td>
-      <td><div class="row-actions">
-        <button class="btn ghost small" data-action="edit-link" data-id="${escapeHtml(it.id)}">🔗 تعديل الرابط</button>
-        <button class="btn ghost small" data-action="toggle" data-id="${escapeHtml(it.id)}">${it.status==='hidden'?'إظهار':'إخفاء'}</button>
-        <button class="btn danger small" data-action="delete" data-id="${escapeHtml(it.id)}">حذف</button>
-      </div></td>
-    </tr>`;
-  }).join('')||`<tr><td colspan="11" style="text-align:center;color:var(--muted);padding:26px">لا توجد نتائج</td></tr>`;
-
-  document.getElementById('admin-source-rows').innerHTML=state.sources.map(s=>`
-    <tr data-src="${escapeHtml(s.id)}">
-      <td><strong style="font-size:13px">${escapeHtml(s.name)}</strong>${s.note?`<div style="font-size:11.5px;color:var(--muted);margin-top:3px;max-width:320px">${escapeHtml(s.note)}</div>`:''}</td>
-      <td>${escapeHtml(s.type)}</td>
-      <td>${s.url?`<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">رابط</a>`:'—'}</td>
-      <td><span class="status-dot ${s.enabled?'':'off'}">${escapeHtml(s.status||(s.enabled?'متصل':'متوقف'))}</span></td>
-      <td style="white-space:nowrap">${s.lastSyncAt?escapeHtml(timeAgo(s.lastSyncAt)):'—'}</td>
-      <td><div class="row-actions">
-        <button class="btn ghost small" data-src-action="sync" data-id="${escapeHtml(s.id)}">مزامنة</button>
-        <button class="btn ${s.enabled?'warn':''} small" data-src-action="toggle" data-id="${escapeHtml(s.id)}">${s.enabled?'إيقاف':'تشغيل'}</button>
-      </div></td>
-    </tr>`).join('');
-
-  document.getElementById('admin-alerts').innerHTML=state.alerts.length
-    ? state.alerts.map(a=>`<div class="card" style="margin-bottom:8px"><div class="card-top"><span class="badge device">${escapeHtml(a.device)}</span><span class="badge">${escapeHtml(a.area||'كل المناطق')}</span></div><div style="font-size:13px;color:var(--muted)">تنبيه مسجّل — قناة محلية.</div></div>`).join('')
-    : '<div style="color:var(--muted);font-size:13px">لا توجد تنبيهات.</div>';
-}
-
-/* ==========================================================================
-   10) التنقل
-   ========================================================================== */
-function setView(name){
-  document.getElementById('view-home').classList.toggle('hidden',name!=='home');
-  document.getElementById('view-results').classList.toggle('hidden',name!=='results');
-  document.getElementById('view-admin').classList.toggle('hidden',name!=='admin');
-  document.getElementById('nav-home').classList.toggle('active',name==='home'||name==='results');
-  document.getElementById('nav-admin').classList.toggle('active',name==='admin');
-  if(name==='results')renderResults();
-  if(name==='admin')renderAdmin();
-  if(name==='home')renderHome();
-}
-function route(){
-  const hash=location.hash||'#/';
-  if(hash.startsWith('#/admin')){setView('admin');return;}
-  const m=hash.match(/^#\/search(?:\?q=(.*))?$/);
-  if(m){
-    const q=m[1]?decodeURIComponent(m[1]):'';
-    state.query=q;
-    document.getElementById('results-q').value=q;
-    setView('results');
-    return;
+  // قائمة الطلبات الحقيقية
+  const listWrap = document.getElementById('admin-list-wrap');
+  const emptyEl = document.getElementById('admin-list-empty');
+  if(real.length === 0){
+    listWrap.style.display = 'none';
+    emptyEl.style.display = 'block';
+  } else {
+    listWrap.style.display = 'block';
+    emptyEl.style.display = 'none';
+    document.getElementById('admin-rows').innerHTML = real.map(it => `
+      <tr data-id="${escapeHtml(it.id)}">
+        <td><span class="txt">${escapeHtml(it.content)}</span></td>
+        <td>${escapeHtml(it.device_type)}</td>
+        <td>${escapeHtml(it.location)}</td>
+        <td>${escapeHtml(it.post_type)}</td>
+        <td>${isValidOriginalUrl(it.original_url)
+              ? `<a href="${escapeHtml(it.original_url)}" target="_blank" rel="noopener noreferrer" style="color:var(--ok);font-weight:700">✅ صالح</a>`
+              : '<span style="color:var(--danger)">❌ غير صالح</span>'}</td>
+        <td style="white-space:nowrap">${escapeHtml(timeAgo(it.created_at))}</td>
+        <td><button class="btn danger small" data-action="del-real" data-id="${escapeHtml(it.id)}">حذف</button></td>
+      </tr>`).join('');
   }
-  setView('home');
-}
-function goSearch(q){
-  const e=encodeURIComponent(q||'');
-  location.hash='#/search?q='+e;
-  if(location.hash==='#/search?q='+e)route();
-}
 
-/* ==========================================================================
-   11) الفلاتر
-   ========================================================================== */
-function initFilterOptions(){
-  const devSel=document.getElementById('f-device');
-  devSel.innerHTML='<option value="">كل الأجهزة</option>'+Object.keys(DEVICE_LEXICON).map(k=>{
-    const d=DEVICE_LEXICON[k];return `<option value="${escapeHtml(k)}">${escapeHtml(d.icon+' '+d.label)}</option>`;
-  }).join('');
-  document.getElementById('f-area').innerHTML='<option value="">كل المناطق</option>'
-    +AREAS.map(a=>`<option value="${escapeHtml(a.name)}">${escapeHtml(a.name)}</option>`).join('')
-    +'<option value="غير محدد">غير محدد</option>';
-  document.getElementById('f-ptype').innerHTML='<option value="">كل الأنواع</option>'
-    +Object.keys(POST_TYPE_LEXICON).map(k=>`<option value="${escapeHtml(k)}">${escapeHtml(k)}</option>`).join('')
-    +'<option value="غير محدد">غير محدد</option>';
-  document.getElementById('alert-device').innerHTML=Object.keys(DEVICE_LEXICON).map(k=>`<option value="${escapeHtml(k)}">${escapeHtml(k)}</option>`).join('');
-  document.getElementById('alert-area').innerHTML='<option value="">كل المناطق</option>'
-    +AREAS.map(a=>`<option value="${escapeHtml(a.name)}">${escapeHtml(a.name)}</option>`).join('');
+  // إعدادات API
+  document.getElementById('set-api-url').value = CONFIG.apiBaseUrl || '';
+
+  // زر Demo
+  const demoBtn = document.getElementById('btn-toggle-demo');
+  demoBtn.textContent = state.demoEnabled ? 'إيقاف وضع التجربة' : 'تفعيل وضع التجربة';
+  demoBtn.className = 'btn ' + (state.demoEnabled ? 'ghost' : 'warn');
 }
 
 /* ==========================================================================
-   12) Toast
+   15) إضافة طلب حقيقي
    ========================================================================== */
-let toastTimer=null;
-function toast(msg){
-  const el=document.getElementById('toast');
-  el.textContent=msg;el.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>el.classList.remove('show'),2600);
-}
+function addRealItem({ content, url, source, date, type }){
+  const resEl = document.getElementById('add-result');
+  resEl.innerHTML = '';
 
-/* ==========================================================================
-   13) خدمة التنبيهات
-   ========================================================================== */
-const NotificationService={
-  channels:{local:{name:'سجل محلي',send(p){console.log('[تنبيه]',p);}}},
-  rules:[],
-  addRule(r){this.rules.push(r);},
-  dispatch(item){
-    for(const r of this.rules){
-      if(r.device&&r.device!==item.device_type)continue;
-      if(r.area&&r.area!==item.location)continue;
-      this.channels.local.send({title:'🔔 طلب صيانة جديد',body:item.content,url:item.original_post_url});
-    }
-  }
-};
-
-/* ==========================================================================
-   14) إضافة طلب حقيقي
-   ========================================================================== */
-function addRealPost({content,url,source,date}){
-  if(!content||!content.trim()){toast('اكتب نص الطلب');return false;}
-  if(!isRealDirectUrl(url)){
-    toast('⚠️ الرابط ليس رابط منشور مباشر. مثال صحيح: facebook.com/groups/.../posts/123');
+  const trimmed = (content || '').trim();
+  if(!trimmed){
+    resEl.innerHTML = '<span style="color:var(--danger)">❌ اكتب نص الطلب أولًا.</span>';
     return false;
   }
-  const cls=classify(content.trim());
-  if(cls.is_technician_ad){
-    toast('🚫 هذا المنشور يبدو إعلانًا من فني/مركز صيانة — لن يُضاف');
+  if(!url || !isValidOriginalUrl(url)){
+    resEl.innerHTML = '<span style="color:var(--danger)">❌ الرابط الأصلي غير صالح. يجب أن يكون رابطًا مباشرًا لمنشور/تعليق (يحتوي على /posts/ أو /status/ أو t.me/ch/123) ويبدأ بـ https://</span>';
     return false;
   }
-  const created=date?new Date(date).toISOString():new Date().toISOString();
-  const item={
-    id:'real-'+Date.now()+'-'+Math.random().toString(36).slice(2,6),
-    source:source||'أخرى',
-    source_url:url,
-    original_post_url:url,
-    direct_post_url:url,
-    search_url:buildPlatformSearchUrl(source,content),
-    content:content.trim(),
-    category:cls.category,
-    device_type:cls.device_type,
-    problem_type:cls.problem_type,
-    location:cls.location,
-    post_type:cls.post_type,
-    created_at:created,
-    collected_at:new Date().toISOString(),
-    confidence_score:cls.confidence_score,
-    status:'active',
-    excluded_reason:cls.excluded_reason,
-    also_seen_in:[],
-    is_real:true
+
+  const cls = classify(trimmed);
+
+  // ✅ شرط أساسي: النية يجب أن تكون SERVICE_REQUEST
+  if(cls.intent !== 'SERVICE_REQUEST'){
+    const intentLabel = {
+      'SERVICE_PROVIDER': 'إعلان مقدم خدمة / فني',
+      'BUSINESS_AD': 'إعلان تجاري / بيع',
+      'INFORMATIONAL': 'محتوى معلوماتي / خبر',
+      'IRRELEVANT': 'غير مصنَّف كطلب صيانة'
+    }[cls.intent] || cls.intent;
+    resEl.innerHTML = `<span style="color:var(--danger)">🚫 تم رفض الإضافة — النية المكتشفة: <b>${escapeHtml(intentLabel)}</b><br>هذا الموقع يعرض فقط طلبات العملاء الحقيقية.</span>`;
+    return false;
+  }
+
+  // منع التكرار
+  const dup = state.realItems.find(i =>
+    i.original_url === url ||
+    normalizeArabic(i.content) === normalizeArabic(trimmed)
+  );
+  if(dup){
+    resEl.innerHTML = '<span style="color:var(--warn)">⚠️ هذه النتيجة مضافة مسبقًا.</span>';
+    return false;
+  }
+
+  const createdAt = date ? new Date(date).toISOString() : new Date().toISOString();
+
+  const item = {
+    id: 'real-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
+    source: source || 'أخرى',
+    source_name: source || 'أخرى',
+    original_url: url,
+    content: trimmed,
+    created_at: createdAt,
+    collected_at: new Date().toISOString(),
+    device_type: cls.device_type,
+    problem_type: cls.problem_type,
+    location: cls.location,
+    post_type: cls.post_type,
+    intent: cls.intent,
+    is_comment: type === 'comment',
+    confidence_score: cls.intent_confidence,
+    is_demo: false
   };
-  const dup=state.items.find(i=>i.direct_post_url===url
-    || fingerprint(i.content)===fingerprint(item.content));
-  if(dup){toast('⚠️ هذا الطلب موجود مسبقًا');return false;}
-  state.items.unshift(item);
-  save();
-  NotificationService.dispatch(item);
-  toast('✅ تمت إضافة الطلب برابط مباشر');
+
+  state.realItems.unshift(item);
+  saveReal();
+
+  resEl.innerHTML = `<span style="color:var(--ok)">✅ تمت إضافة الطلب بنجاح — الجهاز: <b>${escapeHtml(cls.device_type)}</b>، المنطقة: <b>${escapeHtml(cls.location)}</b>، نوع الطلب: <b>${escapeHtml(cls.post_type)}</b></span>`;
+
+  // تفريغ الحقول
+  document.getElementById('new-content').value = '';
+  document.getElementById('new-url').value = '';
+  document.getElementById('new-date').value = '';
+
+  renderAdmin();
   return true;
 }
 
 /* ==========================================================================
-   15) استيراد RSS
+   16) الاتصال بالـ Backend (اختياري)
    ========================================================================== */
-async function fetchRss(url){
-  const out=document.getElementById('rss-result');
-  out.innerHTML='⏳ جارٍ الاستيراد...';
+async function checkBackend(){
+  const ind = document.getElementById('backend-indicator');
+  if(!CONFIG.apiBaseUrl){
+    state.backendConnected = false;
+    state.backendChecked = true;
+    ind.textContent = 'غير متصل';
+    ind.className = 'backend-status';
+    return;
+  }
   try{
-    const res=await fetch(url,{mode:'cors'});
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    const text=await res.text();
-    const doc=new DOMParser().parseFromString(text,'application/xml');
-    if(doc.querySelector('parsererror'))throw new Error('RSS غير صالح');
-    const items=[...doc.querySelectorAll('item, entry')].slice(0,20);
-    let added=0,skipped=0;
-    for(const el of items){
-      const title=el.querySelector('title')?.textContent||'';
-      const desc=el.querySelector('description, summary, content')?.textContent||'';
-      const link=el.querySelector('link')?.textContent
-        || el.querySelector('link')?.getAttribute('href')||'';
-      const content=(desc||title).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,500);
-      if(!content)continue;
-      const cls=classify(content);
-      if(cls.excluded_reason||cls.is_technician_ad){skipped++;continue;}
-      if(!link||!isRealDirectUrl(link)){skipped++;continue;}
-      if(state.items.some(i=>i.direct_post_url===link)){skipped++;continue;}
-      const item={
-        id:'rss-'+Date.now()+'-'+Math.random().toString(36).slice(2,6),
-        source:'RSS',source_url:url,original_post_url:link,direct_post_url:link,
-        search_url:buildPlatformSearchUrl('',content),
-        content,
-        category:cls.category,device_type:cls.device_type,problem_type:cls.problem_type,
-        location:cls.location,post_type:cls.post_type,
-        created_at:new Date().toISOString(),
-        collected_at:new Date().toISOString(),
-        confidence_score:cls.confidence_score,
-        status:'active',excluded_reason:null,also_seen_in:[],is_real:true
-      };
-      state.items.unshift(item);
-      added++;
-    }
-    save();
-    out.innerHTML=`✅ تم استيراد <b>${added}</b> طلب حقيقي. تم تجاهل ${skipped}.`;
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 4000);
+    const res = await fetch(CONFIG.apiBaseUrl.replace(/\/$/, '') + '/health', { signal: ctrl.signal });
+    clearTimeout(t);
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    state.backendConnected = true;
+    ind.textContent = 'متصل بمصدر البيانات';
+    ind.className = 'backend-status ok';
+    // محاولة جلب الطلبات
+    tryFetchRealItems();
   }catch(err){
-    out.innerHTML=`❌ فشل الاستيراد: ${escapeHtml(err.message)}<br><small style="color:var(--muted)">قد يكون السبب CORS — استخدم Backend بديل.</small>`;
+    state.backendConnected = false;
+    ind.textContent = 'غير متصل بمصدر البيانات';
+    ind.className = 'backend-status err';
   }
+  state.backendChecked = true;
+}
+
+async function tryFetchRealItems(){
+  if(!CONFIG.apiBaseUrl) return;
+  try{
+    const res = await fetch(CONFIG.apiBaseUrl.replace(/\/$/, '') + '/items?date=today');
+    if(!res.ok) return;
+    const data = await res.json();
+    if(!Array.isArray(data)) return;
+    // فلترة صارمة من جهة العميل
+    const valid = data.filter(it => 
+      it && it.content && it.original_url &&
+      isValidOriginalUrl(it.original_url) &&
+      it.intent === 'SERVICE_REQUEST' &&
+      isToday(it.created_at)
+    );
+    if(valid.length){
+      // دمج بدون تكرار
+      const existing = new Set(state.realItems.map(i => i.original_url));
+      for(const it of valid){
+        if(!existing.has(it.original_url)){
+          state.realItems.push({
+            id: it.id || ('be-' + Date.now() + Math.random()),
+            source: it.source || 'API',
+            source_name: it.source_name || it.source || 'API',
+            original_url: it.original_url,
+            content: it.content,
+            created_at: it.created_at,
+            collected_at: new Date().toISOString(),
+            device_type: it.device_type || 'أخرى',
+            problem_type: it.problem_type || 'غير محدد',
+            location: it.location || 'المنطقة غير محددة',
+            post_type: it.post_type || 'غير محدد',
+            intent: 'SERVICE_REQUEST',
+            is_comment: !!it.is_comment,
+            confidence_score: it.confidence_score || 0.5,
+            is_demo: false
+          });
+        }
+      }
+      saveReal();
+      toast('تم تحميل ' + valid.length + ' طلب حقيقي من مصدر البيانات');
+    }
+  }catch(e){ /* تجاهل */ }
 }
 
 /* ==========================================================================
-   16) مزامنة المصادر
+   17) Toast
    ========================================================================== */
-async function syncSource(id){
-  const src=state.sources.find(s=>s.id===id);
-  if(!src)return;
-  if(!src.enabled){toast('المصدر متوقف');return;}
-  if(src.adapter==='link'){
-    src.lastSyncAt=new Date().toISOString();
-    src.status='متصل (روابط بحث)';
-    save();renderAdmin();
-    toast('هذا المصدر يوفّر روابط بحث حقيقية — أضف بوستات مباشرة من التبويب الأول');
-    return;
-  }
-  if(src.adapter==='rss'&&src.url){
-    await fetchRss(src.url);
-    src.lastSyncAt=new Date().toISOString();
-    src.status='متصل (RSS)';
-    save();renderAdmin();
-    return;
-  }
-  if(src.adapter==='http'&&CONFIG.apiBaseUrl){
-    try{
-      const res=await fetch(CONFIG.apiBaseUrl+'/sources/'+encodeURIComponent(id)+'/sync',{method:'POST'});
-      if(!res.ok)throw new Error('HTTP '+res.status);
-      src.lastSyncAt=new Date().toISOString();
-      src.status='متصل';save();renderAdmin();
-      toast('تمت المزامنة');
-    }catch(err){src.status='خطأ';save();renderAdmin();toast('فشلت: '+err.message);}
-    return;
-  }
-  toast('هذا المصدر يحتاج صلاحية رسمية أو API');
+let toastTimer = null;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.innerHTML = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3200);
 }
 
 /* ==========================================================================
-   17) مودال إضافة الرابط (للإدارة / عند عدم وجود رابط مباشر)
-   ========================================================================== */
-let _modalItemId=null;
-function openLinkModal(itemId){
-  const item=state.items.find(i=>i.id===itemId);
-  if(!item)return;
-  if(isRealDirectUrl(item.direct_post_url)){
-    window.open(item.direct_post_url,'_blank','noopener');
-    return;
-  }
-  _modalItemId=itemId;
-  document.getElementById('modal-post-preview').textContent='"'+item.content+'"';
-  document.getElementById('modal-url-input').value='';
-  document.getElementById('link-modal').classList.remove('hidden');
-  setTimeout(()=>document.getElementById('modal-url-input').focus(),60);
-}
-function closeLinkModal(){
-  document.getElementById('link-modal').classList.add('hidden');
-  _modalItemId=null;
-}
-function saveAndOpenModalLink(){
-  const item=state.items.find(i=>i.id===_modalItemId);
-  if(!item){closeLinkModal();return;}
-  const url=document.getElementById('modal-url-input').value.trim();
-  if(!url){toast('الصق رابط المنشور أولًا');return;}
-  if(!isRealDirectUrl(url)){toast('⚠️ الرابط ليس رابط منشور مباشر');return;}
-  const dup=state.items.find(i=>i.id!==item.id&&i.direct_post_url===url);
-  if(dup){toast('⚠️ هذا الرابط مضاف مسبقًا');return;}
-  item.direct_post_url=url;
-  item.original_post_url=url;
-  item.is_real=true;
-  save();
-  closeLinkModal();
-  renderResults();renderHome();
-  if(state.adminAuthed)renderAdmin();
-  window.open(url,'_blank','noopener');
-  toast('✅ تم حفظ الرابط المباشر وفتحه');
-}
-
-/* ==========================================================================
-   18) ربط الأحداث
+   18) الأحداث
    ========================================================================== */
 function bindEvents(){
-  document.getElementById('home-search-form').addEventListener('submit',e=>{
+
+  // البحث
+  document.getElementById('home-search-form').addEventListener('submit', e => {
     e.preventDefault();
-    const q=document.getElementById('home-q').value.trim();
-    if(!q){toast('اكتب كلمة للبحث');return;}
-    goSearch(q);
-  });
-  document.getElementById('home-chips').addEventListener('click',e=>{
-    const b=e.target.closest('[data-chip]');if(!b)return;goSearch(b.dataset.chip);
-  });
-  document.getElementById('results-search-form').addEventListener('submit',e=>{
-    e.preventDefault();
-    goSearch(document.getElementById('results-q').value.trim());
-  });
-  document.getElementById('f-device').addEventListener('change',e=>{state.filters.device=e.target.value;renderResults();});
-  document.getElementById('f-area').addEventListener('change',e=>{state.filters.area=e.target.value;renderResults();});
-  document.getElementById('f-ptype').addEventListener('change',e=>{state.filters.postType=e.target.value;renderResults();});
-  document.getElementById('f-age').addEventListener('change',e=>{state.filters.age=e.target.value;renderResults();});
-  document.getElementById('btn-reset-filters').addEventListener('click',()=>{state.filters={device:'',area:'',postType:'',age:''};renderResults();});
-  document.getElementById('btn-locate').addEventListener('click',()=>{
-    if(!navigator.geolocation){toast('المتصفح لا يدعم تحديد الموقع');return;}
-    toast('جارٍ تحديد موقعك...');
-    navigator.geolocation.getCurrentPosition(
-      p=>{state.userLocation={lat:p.coords.latitude,lng:p.coords.longitude};state.sort='nearest';renderResults();toast('تم تحديد موقعك');},
-      ()=>toast('تعذر تحديد الموقع'),
-      {timeout:8000}
-    );
-  });
-  document.getElementById('sort-tabs').addEventListener('click',e=>{
-    const b=e.target.closest('button[data-sort]');if(!b)return;
-    state.sort=b.dataset.sort;
-    if(state.sort==='nearest'&&!state.userLocation&&!state.filters.area)toast('حدد موقعك أو اختر منطقة');
+    state.query = document.getElementById('home-q').value.trim();
     renderResults();
   });
-  document.getElementById('expand-notice').addEventListener('click',e=>{
-    if(e.target.id==='btn-expand'){state.expanded=true;renderResults();}
-    if(e.target.id==='btn-collapse'){state.expanded=false;renderResults();}
-  });
-  document.addEventListener('click',e=>{
-    const b=e.target.closest('[data-action="copy"]');
-    if(!b)return;
-    const it=state.items.find(i=>i.id===b.dataset.id);if(!it)return;
-    navigator.clipboard?.writeText(it.content).then(()=>toast('تم نسخ النص')).catch(()=>toast('تعذر النسخ'));
-  });
-  document.addEventListener('click',e=>{
-    if(e.target.id==='btn-clear-all'){state.query='';state.filters={device:'',area:'',postType:'',age:''};goSearch('');}
-  });
-  document.addEventListener('click',e=>{
-    const b=e.target.closest('[data-action="add-link"]');
-    if(!b)return;
-    openLinkModal(b.dataset.id);
+
+  // Chips
+  document.getElementById('home-chips').addEventListener('click', e => {
+    const b = e.target.closest('[data-chip]');
+    if(!b) return;
+    document.querySelectorAll('#home-chips .chip').forEach(c => c.classList.toggle('active', c === b));
+    state.query = b.dataset.chip;
+    document.getElementById('home-q').value = b.dataset.chip;
+    renderResults();
   });
 
-  /* مودال */
-  document.getElementById('modal-close-x').addEventListener('click',closeLinkModal);
-  document.getElementById('modal-cancel').addEventListener('click',closeLinkModal);
-  document.getElementById('modal-save-open').addEventListener('click',saveAndOpenModalLink);
-  document.getElementById('modal-url-input').addEventListener('keydown',e=>{
-    if(e.key==='Enter'){e.preventDefault();saveAndOpenModalLink();}
+  // Time chips
+  document.getElementById('time-chips').addEventListener('click', e => {
+    const b = e.target.closest('[data-time]');
+    if(!b) return;
+    state.filters.time = b.dataset.time;
+    renderTimeChips();
+    renderStats();
+    renderResults();
   });
-  document.getElementById('link-modal').addEventListener('click',e=>{
-    if(e.target.id==='link-modal')closeLinkModal();
+
+  // فلاتر
+  document.getElementById('f-device').addEventListener('change', e => {
+    state.filters.device = e.target.value;
+    renderResults();
   });
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'&&!document.getElementById('link-modal').classList.contains('hidden')){
-      closeLinkModal();
+  document.getElementById('f-area').addEventListener('change', e => {
+    state.filters.area = e.target.value;
+    renderResults();
+  });
+
+  // الترتيب
+  document.getElementById('sort-tabs').addEventListener('click', e => {
+    const b = e.target.closest('button[data-sort]');
+    if(!b) return;
+    state.sort = b.dataset.sort;
+    document.querySelectorAll('#sort-tabs button').forEach(x => x.classList.toggle('active', x.dataset.sort === state.sort));
+    renderResults();
+  });
+
+  // لافتة Backend
+  document.getElementById('backend-notice').addEventListener('click', e => {
+    if(e.target.id === 'btn-goto-admin'){
+      location.hash = '#/admin';
+    }
+    if(e.target.id === 'btn-open-demo'){
+      state.demoEnabled = true;
+      saveDemoEnabled(true);
+      renderDemoBanner();
+      renderBackendNotice();
+      renderStats();
+      renderResults();
+      toast('⚠️ تم تفعيل وضع التجربة');
     }
   });
 
-  document.getElementById('sidebar-toggle').addEventListener('click',()=>{
-    document.getElementById('sidebar').classList.toggle('collapsed');
+  // زر إيقاف Demo من اللافتة
+  document.getElementById('btn-exit-demo').addEventListener('click', () => {
+    state.demoEnabled = false;
+    saveDemoEnabled(false);
+    renderDemoBanner();
+    renderBackendNotice();
+    renderStats();
+    renderResults();
+    toast('تم إيقاف وضع التجربة');
   });
-  document.getElementById('admin-login').addEventListener('click',()=>{
-    if(document.getElementById('admin-pin').value.trim()===CONFIG.adminPin){
-      state.adminAuthed=true;document.getElementById('admin-pin').value='';renderAdmin();
-    }else toast('رمز غير صحيح');
-  });
-  document.getElementById('admin-pin').addEventListener('keydown',e=>{
-    if(e.key==='Enter')document.getElementById('admin-login').click();
-  });
-  document.getElementById('btn-logout').addEventListener('click',()=>{state.adminAuthed=false;renderAdmin();});
-  document.getElementById('admin-tabs').addEventListener('click',e=>{
-    const b=e.target.closest('button[data-tab]');if(!b)return;
-    state.adminTab=b.dataset.tab;
-    document.querySelectorAll('#admin-tabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab===state.adminTab));
-    ['add-real','results','sources','notifications'].forEach(t=>{
-      document.getElementById('admin-tab-'+t).classList.toggle('hidden',t!==state.adminTab);
-    });
-  });
-  document.getElementById('admin-q').addEventListener('input',e=>{state.adminQuery=e.target.value;renderAdmin();});
-  document.getElementById('admin-status-filter').addEventListener('change',e=>{state.adminStatus=e.target.value;renderAdmin();});
 
-  document.getElementById('form-add-real').addEventListener('submit',e=>{
-    e.preventDefault();
-    const ok=addRealPost({
-      content:document.getElementById('new-content').value,
-      url:document.getElementById('new-url').value.trim(),
-      source:document.getElementById('new-source').value,
-      date:document.getElementById('new-date').value
-    });
-    if(ok){
-      document.getElementById('new-content').value='';
-      document.getElementById('new-url').value='';
-      document.getElementById('new-date').value='';
+  // لوحة الإدارة — بوابة
+  document.getElementById('admin-login').addEventListener('click', () => {
+    const pin = document.getElementById('admin-pin').value.trim();
+    if(pin === CONFIG.adminPin){
+      state.adminAuthed = true;
+      document.getElementById('admin-pin').value = '';
       renderAdmin();
-    }
+    } else toast('رمز غير صحيح');
+  });
+  document.getElementById('admin-pin').addEventListener('keydown', e => {
+    if(e.key === 'Enter') document.getElementById('admin-login').click();
+  });
+  document.getElementById('btn-logout').addEventListener('click', () => {
+    state.adminAuthed = false;
+    renderAdmin();
   });
 
-  document.getElementById('btn-fetch-rss').addEventListener('click',()=>{
-    const url=document.getElementById('rss-url').value.trim();
-    if(!url){toast('الصق رابط RSS');return;}
-    fetchRss(url);
-  });
-
-  document.getElementById('admin-rows').addEventListener('click',e=>{
-    const b=e.target.closest('button[data-action]');if(!b)return;
-    const it=state.items.find(i=>i.id===b.dataset.id);if(!it)return;
-    if(b.dataset.action==='toggle'){
-      it.status=it.status==='hidden'?'active':'hidden';save();renderAdmin();
-      toast(it.status==='hidden'?'تم الإخفاء':'تم الإظهار');
-    }
-    if(b.dataset.action==='delete'){
-      if(confirm('حذف هذه النتيجة نهائيًا؟')){
-        state.items=state.items.filter(i=>i.id!==it.id);save();renderAdmin();toast('تم الحذف');
-      }
-    }
-    if(b.dataset.action==='edit-link'){
-      const current=it.direct_post_url||'';
-      const newUrl=prompt('الصق الرابط المباشر للمنشور:',current);
-      if(newUrl===null)return;
-      const trimmed=newUrl.trim();
-      if(!trimmed){it.direct_post_url=null;it.original_post_url=it.search_url||it.original_post_url;save();renderAdmin();toast('تم مسح الرابط');return;}
-      if(!isRealDirectUrl(trimmed)){toast('⚠️ الرابط ليس رابط منشور مباشر');return;}
-      it.direct_post_url=trimmed;it.original_post_url=trimmed;it.is_real=true;
-      save();renderAdmin();toast('✅ تم تحديث الرابط');
-    }
-  });
-  document.getElementById('admin-rows').addEventListener('change',e=>{
-    const s=e.target.closest('select[data-field]');if(!s)return;
-    const tr=s.closest('tr');
-    const it=state.items.find(i=>i.id===tr.dataset.id);if(!it)return;
-    it[s.dataset.field]=s.value;
-    it.confidence_score=Math.min(.99,(it.confidence_score||.5)+.05);
-    save();toast('تم تحديث التصنيف');
-  });
-
-  document.getElementById('admin-source-rows').addEventListener('click',e=>{
-    const b=e.target.closest('button[data-src-action]');if(!b)return;
-    const s=state.sources.find(x=>x.id===b.dataset.id);if(!s)return;
-    if(b.dataset.srcAction==='sync')syncSource(s.id);
-    if(b.dataset.srcAction==='toggle'){
-      s.enabled=!s.enabled;
-      s.status=s.enabled?(s.adapter==='none'?'يحتاج صلاحية':'متصل'):'متوقف';
-      save();renderAdmin();
-      toast(s.enabled?'تم التشغيل':'تم الإيقاف');
-    }
-  });
-
-  document.getElementById('btn-add-source').addEventListener('click',()=>{
-    const name=document.getElementById('src-name').value.trim();
-    const type=document.getElementById('src-type').value;
-    const url=document.getElementById('src-url').value.trim();
-    if(!name){toast('اكتب اسم المصدر');return;}
-    state.sources.push({
-      id:'src-'+Date.now(),name,type,url,
-      enabled:true,status:type==='rss'?'متصل (RSS)':'متصل (بدون سحب تلقائي)',
-      lastSyncAt:null,adapter:type==='rss'?'rss':'none',
-      note:'مصدر مُضاف يدويًا.'
+  // تبويبات الإدارة
+  document.getElementById('admin-tabs').addEventListener('click', e => {
+    const b = e.target.closest('button[data-tab]');
+    if(!b) return;
+    state.adminTab = b.dataset.tab;
+    document.querySelectorAll('#admin-tabs button').forEach(x => x.classList.toggle('active', x.dataset.tab === state.adminTab));
+    ['add', 'list', 'settings'].forEach(t => {
+      document.getElementById('admin-tab-' + t).classList.toggle('hidden', t !== state.adminTab);
     });
-    document.getElementById('src-name').value='';
-    document.getElementById('src-url').value='';
-    save();renderAdmin();toast('تمت الإضافة');
   });
 
-  document.getElementById('btn-add-alert').addEventListener('click',()=>{
-    const device=document.getElementById('alert-device').value;
-    const area=document.getElementById('alert-area').value;
-    state.alerts.push({device,area,createdAt:new Date().toISOString()});
-    NotificationService.addRule({device,area});
-    save();renderAdmin();toast('تم إضافة التنبيه');
+  // إضافة طلب
+  document.getElementById('form-add-real').addEventListener('submit', e => {
+    e.preventDefault();
+    addRealItem({
+      content: document.getElementById('new-content').value,
+      url: document.getElementById('new-url').value.trim(),
+      source: document.getElementById('new-source').value,
+      date: document.getElementById('new-date').value,
+      type: document.getElementById('new-type').value
+    });
   });
 
-  document.getElementById('btn-reset-data').addEventListener('click',()=>{
-    if(!confirm('سيتم حذف كل التعديلات والعودة للبيانات التجريبية. متابعة؟'))return;
-    localStorage.removeItem(CONFIG.storageKey);
-    initData(true);renderAdmin();toast('تمت إعادة التعيين');
+  // حذف طلب حقيقي
+  document.getElementById('admin-rows').addEventListener('click', e => {
+    const b = e.target.closest('button[data-action="del-real"]');
+    if(!b) return;
+    if(!confirm('حذف هذا الطلب نهائيًا؟')) return;
+    state.realItems = state.realItems.filter(i => i.id !== b.dataset.id);
+    saveReal();
+    renderAdmin();
+    toast('تم حذف الطلب');
+  });
+
+  // مسح كل البيانات الحقيقية
+  document.getElementById('btn-clear-real').addEventListener('click', () => {
+    if(!confirm('سيتم حذف كل الطلبات الحقيقية المُضافة يدويًا. متابعة؟')) return;
+    state.realItems = [];
+    saveReal();
+    renderAdmin();
+    renderStats();
+    renderResults();
+    renderBackendNotice();
+    toast('تم مسح البيانات الحقيقية');
+  });
+
+  // وضع التجربة
+  document.getElementById('btn-toggle-demo').addEventListener('click', () => {
+    state.demoEnabled = !state.demoEnabled;
+    saveDemoEnabled(state.demoEnabled);
+    if(state.demoEnabled) state.demoItems = buildDemoItems();
+    renderAdmin();
+    renderDemoBanner();
+    renderBackendNotice();
+    renderStats();
+    renderResults();
+    toast(state.demoEnabled ? '⚠️ وضع التجربة مُفعَّل' : 'تم إيقاف وضع التجربة');
+  });
+
+  // حفظ API URL
+  document.getElementById('btn-save-api').addEventListener('click', () => {
+    const url = document.getElementById('set-api-url').value.trim();
+    CONFIG.apiBaseUrl = url;
+    try{ localStorage.setItem('alex-api-url-v5', url); }catch(e){}
+    checkBackend().then(() => {
+      renderBackendNotice();
+      renderStats();
+      renderResults();
+      toast(url ? 'تم حفظ الرابط ومحاولة الاتصال' : 'تم مسح رابط الـ API');
+    });
   });
 }
 
@@ -1577,25 +1500,44 @@ function bindEvents(){
    19) الإقلاع
    ========================================================================== */
 (function init(){
-  document.getElementById('year').textContent=new Date().getFullYear();
-  initData(false);
-  initFilterOptions();
-  bindEvents();
-  renderHome();
-  route();
-  window.addEventListener('hashchange',route);
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* عند كل فتح للصفحة، تأكد أن البيانات حديثة */
-  setTimeout(()=>{
-    const latestTime=state.items.reduce((mx,i)=>Math.max(mx,new Date(i.created_at).getTime()),0);
-    const ageHours=(Date.now()-latestTime)/3600000;
-    if(ageHours>12){
-      state.items=buildItems();
-      save();
-      renderHome();
-      if(state.adminAuthed)renderAdmin();
+  // تحميل الإعدادات
+  try{
+    const savedApi = localStorage.getItem('alex-api-url-v5');
+    if(savedApi) CONFIG.apiBaseUrl = savedApi;
+  }catch(e){}
+
+  // تحميل البيانات
+  state.realItems = loadReal();
+  state.demoEnabled = loadDemoEnabled();
+  if(state.demoEnabled) state.demoItems = buildDemoItems();
+
+  // تعبئة الفلاتر
+  const devSel = document.getElementById('f-device');
+  devSel.innerHTML = '<option value="">كل الأجهزة</option>' + Object.keys(DEVICE_LEXICON).map(k =>
+    `<option value="${escapeHtml(k)}">${escapeHtml(DEVICE_LEXICON[k].icon + ' ' + DEVICE_LEXICON[k].label)}</option>`
+  ).join('');
+  const areaSel = document.getElementById('f-area');
+  areaSel.innerHTML = '<option value="">كل المناطق</option>' +
+    AREAS.map(a => `<option value="${escapeHtml(a.name)}">${escapeHtml(a.name)}</option>`).join('');
+
+  renderChips();
+  renderTimeChips();
+  bindEvents();
+  route();
+
+  // فحص الـ Backend
+  checkBackend();
+
+  // فحص دوري كل 3 دقائق للـ Backend
+  setInterval(() => {
+    if(CONFIG.apiBaseUrl){
+      checkBackend();
     }
-  },50);
+  }, 180000);
+
+  window.addEventListener('hashchange', route);
 })();
 </script>
 </body>
